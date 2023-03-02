@@ -13,29 +13,31 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-primary">
-                <div class="panel-heading">Heading</div>
-                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"
-                        style="width:100%" alt="Image"></div>
-                <div class="panel-footer">some text</div>
+                <div class="panel-heading">{{postpattern.title}}</div>
+                {% if "placeholder" in postpattern.featured_image.url %}
+                <div class="panel-body"><img src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg" class="img-responsive" style="width:100%" alt="default image"></div>
+                {% else %}
+                <div class="panel-body"><img src="{{ post.featured_image.url }}" class="img-responsive" style="width:100%" alt="Featured pattern image"></div>
+                {% endif %}
+                <div class="panel-footer">Author: {{postpattern.author}}</div>
+                <div class="panel-footer">{{postpattern.excerpt}}</div>
             </div>
         </div>
-        <div class="col-sm-4">
+       <!-- <div class="col-sm-4">
             <div class="panel panel-danger">
                 <div class="panel-heading">Heading</div>
-                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"
-                        style="width:100%" alt="Image"></div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                 <div class="panel-footer">some text</div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="panel panel-success">
                 <div class="panel-heading">Heading</div>
-                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"
-                        style="width:100%" alt="Image"></div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                 <div class="panel-footer">some text</div>
             </div>
         </div>
-    </div>
-</div><br>
+    </div> -->
+</div><br> 
 
 {% endblock %}
