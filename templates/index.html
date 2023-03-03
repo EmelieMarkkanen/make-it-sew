@@ -10,23 +10,31 @@
 <br>
 <div class="container">
     <div class="row">
-        {% for post in posted_patterns %}
+        {% for post in posted_patterns|slice:":3" %}
+        {% if post.featured_pattern %}
         <div class="col-sm-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-background">
                 <div class="panel-heading">{{post.title}}</div>
                 {% if 'placeholder' in post.featured_image.url %}
                 <div class="panel-body">
-                    <img src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg" class="img-responsive custom-img-size-index " alt="Image"></div>
+                    <img src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg"
+                        class="img-responsive custom-img-size-index " alt="Image"></div>
                 {% else %}
                 <div class="panel-body">
-                    <img src="{{ post.featured_image.url }}" class="img-responsive custom-img-size-index" alt="Featured pattern image"></div>
+                    <img src="{{ post.featured_image.url }}" class="img-responsive custom-img-size-index"
+                        alt="Featured pattern image"></div>
                 {% endif %}
-                <div class="panel-footer" class="author"><p>Author: {{post.author}}</p></div>
-                <div class="panel-footer" class="panel-footer"><p>{{post.excerpt}}</p></div>
+                <div class="panel-footer" class="author">
+                    <p>Author: {{post.author}}</p>
+                </div>
+                <div class="panel-footer" class="panel-footer">
+                    <p>{{post.excerpt}}</p>
+                </div>
             </div>
         </div>
+        {% endif %}
         {%endfor%}
 
-</div><br> 
+    </div><br>
 
-{% endblock %}
+    {% endblock %}
