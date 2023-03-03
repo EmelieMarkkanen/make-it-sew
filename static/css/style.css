@@ -7,15 +7,13 @@
 .navbar {
   position: sticky;
   width: 100%;
-  /*margin-bottom: 50px;*/
   border-radius: 0;
   background-color: #1E1E1E;
 }
 
- .jumbotron-fluid {
+ .jumbotron-fluid { 
   height: 250px;
   width: 100%;
-  object-fit: ;
   background-size: cover;
   background-position: center top;
 }
