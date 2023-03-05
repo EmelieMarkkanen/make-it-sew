@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -15,7 +14,7 @@
                 </div>
                 {%else%}
                 <div class="col-lg-5 col-md-5 col-sm-6">
-                    <div class="white-box text-center"><img src="{{ postpattern.featured_image.url }}"
+                    <div class="white-box text-center"><img src="{{ post.featured_image.url }}"
                             class="img-responsive"></div>
                 </div>
                 {%endif%}
@@ -34,9 +33,8 @@
     </div>
 </div>
 <br>
-<!--
+
 <div class="container mt-5">
-    {% for comment in comments %}
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
             <div class="d-flex flex-column comment-section">
@@ -54,7 +52,5 @@
             </div>
         </div>
     </div>
-    {%endfor%}
-</div> -->
-
+</div> 
 {%endblock%}
