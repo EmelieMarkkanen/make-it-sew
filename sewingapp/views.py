@@ -11,7 +11,7 @@ class PostPattern(generic.ListView):
     context_object_name = 'posted_patterns'
 
 
-class PatternDetail(View):
+#class PatternDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = PostPattern.objects.filter(status=1)
         postpattern = get_object_or_404(queryset, slug=slug)

@@ -4,6 +4,12 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+DIFFICULTY = (
+    (0, 'Beginner'),
+    (1, 'Intermediate'),
+    (2, 'Expert'),
+)
+
 
 class PostPattern(models.Model):
     """
@@ -22,6 +28,7 @@ class PostPattern(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     approved = models.BooleanField(default=False)
     featured_pattern = models.BooleanField(default=False)
+    difficulty = models.IntegerField(choices=DIFFICULTY, default=0)
 
     class Meta:
         ordering = ["-created_on"]
