@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from multiselectfield import MultiSelectField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -8,6 +9,23 @@ DIFFICULTY = (
     (0, 'Beginner'),
     (1, 'Intermediate'),
     (2, 'Expert'),
+)
+
+SUGGESTED_FABRICS = (
+    ('stretch', 'Stretch'),
+    ('non_stretch', 'Non-stretch'),
+    ('wool', 'Wool'),
+    ('denim', 'Denim'),
+    ('silk', 'Silk'),
+    ('cotton', 'Cotton'),
+    ('lace', 'Lace'),
+    ('canvas', 'Canvas'),
+    ('chiffon', 'Chiffon'),
+    ('jersey', 'Jersey'),
+    ('gingham', 'Gingham'),
+    ('spandex', 'Spandex'),
+    ('organza', 'Organza'),
+    ('none', 'None')
 )
 
 
@@ -29,6 +47,7 @@ class PostPattern(models.Model):
     approved = models.BooleanField(default=False)
     featured_pattern = models.BooleanField(default=False)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=0)
+    suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, default='none')
 
     class Meta:
         ordering = ["-created_on"]

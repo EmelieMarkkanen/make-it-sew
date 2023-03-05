@@ -2,6 +2,14 @@
 
 {% block content %}
 
+{% block body_class %}
+    {% if page == 'index' %}
+        body
+    {% elif page == 'pattern_detail' %}
+        pages-background
+    {% endif %}
+{% endblock %}
+
     <div class="jumbotron-fluid">
         <div class="container text-center">
             <h1>Make it Sew</h1>

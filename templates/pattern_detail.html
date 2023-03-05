@@ -1,19 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% block body_class %}
+    {% if page == 'index' %}
+        body
+    {% elif page == 'pattern_detail' %}
+        pages-background
+    {% endif %}
+{% endblock %}
+
 <div class="container">
     <div class="card">
         <div class="card-body">
             <h3 class="card-title post-title-detailed">{{post.title}}</h3>
             <div class="row">
                 {% if 'placeholder' in post.featured_image.url %}
-                <div class="col-lg-5 col-md-5 col-sm-6">
+                <div class="col-lg-5 col-md-3 col-sm-6">
                     <div class="white-box text-center"><img
                             src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg"
                             class="img-responsive"></div>
                 </div>
                 {%else%}
-                <div class="col-lg-5 col-md-5 col-sm-6">
+                <div class="col-lg-5 col-md-3 col-sm-6">
                     <div class="white-box text-center"><img src="{{ post.featured_image.url }}"
                             class="img-responsive"></div>
                 </div>
@@ -24,8 +33,8 @@
                     <button class="btn btn-primary btn-rounded">Download pattern</button>
                     <h3 class="box-title mt-5">More info</h3>
                     <ul class="list-unstyled">
-                        <li></i>Difficulty: {{post.difficulty}}</li>
-                        <li></i>Suggested fabrics:</li>
+                        <li></i>Difficulty: {{post.get_difficulty_display}}</li>
+                        <li></i>Suggested fabrics: {{post.get_suggested_fabrics_display}}</li>
                     </ul>
                 </div>
             </div>
@@ -54,3 +63,4 @@
     </div>
 </div> 
 {%endblock%}
+

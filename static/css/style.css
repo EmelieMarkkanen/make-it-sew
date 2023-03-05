@@ -1,8 +1,18 @@
-.body-background-image {
+body {
   background-image: url('https://res.cloudinary.com/dbgnna5vv/image/upload/v1677871172/Shutterstock_794191939_r79dvu.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
+}
+
+.pages-background {
+  background-image: none;
+  background-color: white;
+  color: transparent;
+}
+
+.pages-background .container {
+  color: black;
 }
 
 .navbar {
