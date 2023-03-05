@@ -2,14 +2,6 @@
 
 {% block content %}
 
-{% block body_class %}
-    {% if page == 'index' %}
-        index-page-background
-    {% elif page == 'pattern_detail' %}
-        pages-background
-    {% endif %}
-{% endblock %}
-
     <div class="jumbotron-fluid">
         <div class="container text-center">
             <h1>Make it Sew</h1>
@@ -19,8 +11,9 @@
     <br>
     <div class="container">
         <div class="row">
-            {% for post in posted_patterns|slice:":3" %}
+            {% for post in posted_patterns %}
             {% if post.featured_pattern %}
+            {% if forloop.counter <= 3 %}
             <div class="col-sm-4">
                 <div class="panel panel-background">
                     <a href="{% url 'pattern_detail' post.slug%}">
@@ -44,7 +37,7 @@
                 </div>
             </div>
             {% endif %}
+            {% endif %}
             {%endfor%}
-
         </div><br>
 {% endblock %}

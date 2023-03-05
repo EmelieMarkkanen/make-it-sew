@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.core.paginator import Paginator
 from .models import PostPattern
 from .models import PostPattern as PP
 from django.views.generic import ListView
@@ -7,7 +8,7 @@ from django.views.generic import ListView
 
 class PostPattern(generic.ListView):
     model = PostPattern
-    queryset = PostPattern.objects.filter(status=1).order_by("-created_on")
+    queryset = PostPattern.objects.filter(status=1, featured_pattern=True).order_by("-created_on")
     template_name = "index.html"
     context_object_name = 'posted_patterns'
 
@@ -27,4 +28,12 @@ class PatternDetail(View):
                 "page": page
             },
         )
-        
+
+
+class AllPatterns(generic.ListView):
+
+    model = PostPattern
+    queryset = PP.objects.filter(status=1).order_by('-created_on')
+    template_name = "all_patterns.html"
+    paginate_by = 9
+    context_object_name = 'posted_patterns'

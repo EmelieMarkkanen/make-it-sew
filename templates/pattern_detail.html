@@ -3,11 +3,11 @@
 {% block content %}
 
 {% block body_class %}
-{% if page == 'index' %}
-body
-{% elif page == 'pattern_detail' %}
-pages-background
-{% endif %}
+    {% if page == 'index' %}
+        body
+    {% elif page == 'pattern_detail' %}
+        pages-background
+    {% endif %}
 {% endblock %}
 
 <div class="container">
@@ -65,4 +65,5 @@ pages-background
         </div>
     </div>
 </div>
+<br>
 {%endblock%}
