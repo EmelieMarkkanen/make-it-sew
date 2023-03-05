@@ -14,7 +14,9 @@
         {% if post.featured_pattern %}
         <div class="col-sm-4">
             <div class="panel panel-background">
+                <a href="{% url 'pattern_detail' post.slug%}">
                 <div class="panel-heading">{{post.title}}</div>
+                </a>
                 {% if 'placeholder' in post.featured_image.url %}
                 <div class="panel-body">
                     <img src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg"

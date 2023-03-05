@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, View
 from .models import PostPattern
+from .models import PostPattern as PP
 from django.views.generic import ListView
 
 
@@ -11,14 +12,17 @@ class PostPattern(generic.ListView):
     context_object_name = 'posted_patterns'
 
 
-#class PatternDetail(View):
-    def get(self, request, slug, *args, **kwargs):
-        queryset = PostPattern.objects.filter(status=1)
-        postpattern = get_object_or_404(queryset, slug=slug)
-        postcomment = postpattern.comments.filter(approved=True).order_by("-created_on")
+class PatternDetail(View):
 
-        return render(request, "pattern_detail.html", {
-                "postpattern": postpattern,
-                "postcomment": postcomment,
+    def get(self, request, slug, *args, **kwargs):
+        queryset = PP.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+
+        return render(
+            request,
+            "pattern_detail.html",
+            {
+                "post": post,
             },
         )
+        
