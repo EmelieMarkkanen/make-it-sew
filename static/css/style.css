@@ -40,8 +40,15 @@ body {
 footer {
   background-color: rgba(30, 30, 30, 0.8);
   height: 100px;
+  color: antiquewhite;
+  padding: 40px;
 }
 
+footer li {
+  list-style-type: none;
+  display: inline;
+  padding-right: 10px;
+}
 
 /* Cards */
 
