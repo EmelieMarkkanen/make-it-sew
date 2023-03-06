@@ -37,3 +37,8 @@ class AllPatterns(generic.ListView):
     template_name = "all_patterns.html"
     paginate_by = 9
     context_object_name = 'posted_patterns'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page'] = 'all_patterns'
+        return context

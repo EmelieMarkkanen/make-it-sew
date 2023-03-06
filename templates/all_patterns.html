@@ -2,6 +2,12 @@
 
 {% block content %}
 
+{% block body_class %}
+{% if page == 'all_patterns' %}
+pages-background
+{% endif %}
+{% endblock %}
+
 <div class="container">
     <div class="row">
         {% for post in posted_patterns%}
