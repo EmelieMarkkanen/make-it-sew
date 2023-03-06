@@ -3,17 +3,16 @@
 {% block content %}
 
 {% block body_class %}
-    {% if page == 'index' %}
-        body
-    {% elif page == 'pattern_detail' %}
-        pages-background
-    {% endif %}
+{% if page == 'index' %}
+body
+{% elif page == 'pattern_detail' %}
+pages-background
+{% endif %}
 {% endblock %}
 
-<div class="container">
+<div class="container detailed-pattern-display">
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title post-title-detailed">{{post.title}}</h3>
             <div class="row">
                 {% if 'placeholder' in post.featured_image.url %}
                 <div class="col-lg-5 col-md-3 col-sm-6">
@@ -28,11 +27,10 @@
                 </div>
                 {%endif%}
                 <div class="col-lg-7 col-md-7 col-sm-6">
-                    <h4 class="box-title mt-5 post-author-detailed">Created by: {{post.author}}</h4>
-                    <p>{{post.description|safe}}</p>
+                    <h3 class="box-title mt-5 post-author-detailed">| {{post.title}} | by {{post.author}}</h3>
                     <br>
-                    <button class="btn btn-primary btn-rounded">Download pattern</button>
-                    <h3 class="box-title mt-5">More info</h3>
+                    <h5 class="box-title mt-5">About</h5>
+                    <p>{{post.description|safe}}</p>
                     <ul class="list-unstyled">
                         <li>Difficulty: {{post.get_difficulty_display}}</li>
                         <li>Suggested fabrics: {{post.get_suggested_fabrics_display}}</li>
@@ -40,10 +38,15 @@
                 </div>
             </div>
         </div>
+        <br>
+        <div class="col-lg-7 col-md-7 col-sm-6">
+            <div class="text-right">
+                <button class="btn btn-primary btn-rounded download-button">Download pattern</button>
+            </div>
+        </div>
     </div>
 </div>
 <br>
-
 <div class="container mt-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
@@ -51,7 +54,7 @@
                 {% for comment in post.comments.all %}
                 <div class="bg-white p-2">
                     <div class="d-flex flex-column justify-content-start ml-2">
-                        <span class="d-block font-weight-bold name">{{comment.name}}</span> 
+                        <span class="d-block font-weight-bold name">{{comment.name}}</span>
                         <br>
                         <span class="d-block font-weight-bold name">{{comment.created_on}}</span></div>
                     <div class="mt-2">
@@ -62,7 +65,8 @@
                 <div class="bg-light p-2">
                     <textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
                 <br>
-                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button></div>
+                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post
+                        comment</button></div>
             </div>
         </div>
     </div>

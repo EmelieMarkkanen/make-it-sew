@@ -40,7 +40,6 @@ body {
 footer {
   background-color: rgba(30, 30, 30, 0.8);
   height: 100px;
-  color: antiquewhite;
   padding: 40px;
 }
 
@@ -48,6 +47,10 @@ footer li {
   list-style-type: none;
   display: inline;
   padding-right: 10px;
+}
+
+footer a {
+  color: antiquewhite;
 }
 
 /* Cards */
@@ -74,6 +77,12 @@ footer li {
 
 .panel-footer{
   opacity: 0.8;
+}
+
+/*Detailed pattern page*/
+
+.download-button{
+  
 }
 
 /*Pagination*/
