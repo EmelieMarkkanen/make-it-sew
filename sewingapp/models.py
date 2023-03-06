@@ -47,12 +47,16 @@ class PostPattern(models.Model):
     featured_pattern = models.BooleanField(default=False)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=0)
     suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, null=True, blank=True)
+    likes = models.ManyToManyField(User, related_name='pattern_like', blank=True)
 
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
 
 
 class PostComment(models.Model):
