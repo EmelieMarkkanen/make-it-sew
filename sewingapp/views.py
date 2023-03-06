@@ -46,3 +46,17 @@ class AllPatterns(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['page'] = 'all_patterns'
         return context
+
+
+class LikedPatterns(generic.ListView):
+
+    model = PostPattern
+    queryset = PP.objects.filter(status=1).order_by('-created_on')
+    template_name = "liked_patterns.html"
+    paginate_by = 6
+    context_object_name = 'posted_patterns'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page'] = 'liked_patterns'
+        return context

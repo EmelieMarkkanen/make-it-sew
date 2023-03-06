@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% block body_class %}
+{% if page == 'liked_patterns' %}
+pages-background
+{% endif %}
+{% endblock %}
+
+<div class="container">
+    <div class="row">
+        {% for post in posted_patterns%}
+        {% if post.liked %}
+        <div class="col-sm-4">
+            <div class="panel panel-background">
+                <a href="{% url 'pattern_detail' post.slug%}">
+                    <div class="panel-heading">{{post.title}}</div>
+                </a>
+                {% if 'placeholder' in post.featured_image.url %}
+                <div class="panel-body">
+                    <img src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg"
+                        class="img-responsive custom-img-size-index " alt="Image"></div>
+                {% else %}
+                <div class="panel-body">
+                    <img src="{{ post.featured_image.url }}" class="img-responsive custom-img-size-index"
+                        alt="Featured pattern image"></div>
+                {% endif %}
+                <div class="panel-footer" class="author">
+                    <p>Author: {{post.author}}</p>
+                </div>
+                <div class="panel-footer" class="panel-footer">
+                    <p>{{post.excerpt}}</p>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+    </div><br>
+    <div class="pagination">
+        <span class="step-links">
+          {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; prev</a>
+          {% endif %}
+      
+          <span class="current-page">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+          </span>
+      
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next &rsaquo;</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
+
+{%endblock%}
