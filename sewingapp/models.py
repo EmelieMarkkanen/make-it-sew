@@ -25,7 +25,6 @@ SUGGESTED_FABRICS = (
     ('gingham', 'Gingham'),
     ('spandex', 'Spandex'),
     ('organza', 'Organza'),
-    ('none', 'None')
 )
 
 
@@ -47,7 +46,7 @@ class PostPattern(models.Model):
     approved = models.BooleanField(default=False)
     featured_pattern = models.BooleanField(default=False)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=0)
-    suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, default='none')
+    suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, null=True, blank=True)
 
     class Meta:
         ordering = ["-created_on"]
