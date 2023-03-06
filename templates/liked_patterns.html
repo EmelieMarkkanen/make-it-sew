@@ -24,16 +24,26 @@ pages-background
                 {% else %}
                 <div class="panel-body">
                     <img src="{{ post.featured_image.url }}" class="img-responsive custom-img-size-index"
-                        alt="Featured pattern image"></div>
-                {% endif %}
-                <div class="panel-footer" class="author">
-                    <p>Author: {{post.author}}</p>
+                        alt="Featured pattern image">
                 </div>
-                <div class="panel-footer" class="panel-footer">
-                    <p>{{post.excerpt}}</p>
+                {% endif %}
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="author">Added by: {{post.author}}</p>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <p class="index-likes"><i class="far fa-heart"></i> {{post.number_of_likes}}</p>
+                            </div>
+                        </div>
+                        <div class="row panel-footer">
+                            <div class="col-sm-12">
+                                <p class="panel-excerpt">{{post.excerpt}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         {%endif%}
         {%endfor%}
     </div><br>
@@ -54,5 +64,4 @@ pages-background
           {% endif %}
         </span>
       </div>
-
-{%endblock%}
+{% endblock %}

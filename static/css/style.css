@@ -79,6 +79,10 @@ footer a {
   opacity: 0.8;
 }
 
+.index-likes {
+justify-content: right;
+}
+
 /*Detailed pattern page*/
 
 .download-button{
