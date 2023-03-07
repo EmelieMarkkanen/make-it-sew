@@ -35,19 +35,20 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'all_patterns' %}">All Patterns</a></li>
-                    <!--Add user is authenticated functionality to this link-->
-                    <li><a href="#">Sign in/Sign out</a></li>
-                    <!--Add user is authenticated functionality to this link-->
-                    <li><a href="#">Log out</a></li>
-                    <!--Add user is authenticated functionality to this link-->
-                    <li><a href="#">Register</a></li>
-                    <!--Add user is authenticated functionality to this link-->
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'all_patterns' %}">All patterns</a></li>
+                    <li><a href="#">My patterns</a></li>
+                    <li><a href="{% url 'account_logout'%}">Log out</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'liked_patterns' %}"><i class="far fa-heart"></i>  Liked patterns</a></li>
+                    </ul>
+                    <ul>
+                    {% else %}
+                    <li><a href="{% url 'account_login' %}">Sign in</a></li>
+                    <li><a href="{% url 'account_signup' %}">Register</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'liked_patterns' %}">My liked patterns</a></li>
-                    <!--Add user is authenticated functionality to this link-->
-                </ul>
+                {% endif %}
             </div>
         </div>
     </nav>
