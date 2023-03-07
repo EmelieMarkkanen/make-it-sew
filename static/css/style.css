@@ -131,6 +131,13 @@ justify-content: right;
 
 /*Detailed pattern page*/
 
+.comment-section {
+  height: 40vh;
+}
+
+.comment-form {
+  
+}
 
 /*Pagination*/
 

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 {% block body_class %}
@@ -51,6 +53,7 @@ pages-background
         <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="d-flex flex-column comment-section">
                 {% for comment in post.comments.all %}
+                {% if comment.approved %}
                 <div class="bg-white p-2">
                     <div class="d-flex flex-column justify-content-start ml-2">
                         <span class="d-block font-weight-bold author-name">{{comment.name}}</span>
@@ -60,21 +63,30 @@ pages-background
                         <p class="comment-text">{{comment.body}}</p>
                     </div>
                 </div>
-                {% endfor %}
-                <div class="bg-light p-2">
-                    <textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
-                <br>
-                {% if user.is_authenticated %}
-                <div class="mt-2 text-right"><button class="btn btn-sm shadow-none pink-button" type="button">Post
-                        comment</button></div>
-                {% else %}
-                <div class="mt-2 text-right"><a href="{% url 'account_login' %}"><button
-                            class="btn btn-sm shadow-none pink-button" type="button">Sign in to post a
-                            comment</button></a></div>
                 {% endif %}
+                {% endfor %}
+                <div class="container mt-3 comment-section">
+                    {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting approval
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
+                    <form method="post" class="comment-form">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <br>
+                        <div class="mt-2 text-right"><button class="btn btn-sm shadow-none pink-button"
+                                type="submit">Post comment</button></div>
+                        {% else %}
+                        <div class="mt-2 text-right"><a href="{% url 'account_login' %}"><button
+                                    class="btn btn-sm shadow-none pink-button" type="button">Sign in to post
+                                    acomment</button></a></div>
+                        {% endif %}
+                        {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-{%endblock%}
+    {%endblock%}
