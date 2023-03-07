@@ -132,11 +132,16 @@ justify-content: right;
 /*Detailed pattern page*/
 
 .comment-section {
-  height: 40vh;
+  height: 45vh;
+  font-size:medium;
 }
 
 .comment-form {
-  
+  color: transparent;
+}
+
+.author-name, .comment-text {
+  font-weight: bold;
 }
 
 /*Pagination*/
