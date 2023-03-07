@@ -2,53 +2,58 @@
 
 {% block content %}
 
-    <div class="jumbotron-fluid">
-        <div class="container text-center">
-            <h1 class="index-heading">Make it Sew</h1>
-            <p class="blurb-text">Blurb</p>
-        </div>
+<div class="jumbotron-fluid">
+    <div class="container text-center">
+        <h1 class="index-heading">Make it Sew</h1>
+        <p class="blurb-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
     </div>
-    <br>
-    <div class="container">
-        <div class="row">
-            {% for post in posted_patterns %}
-            {% if post.featured_pattern %}
-            {% if forloop.counter <= 3 %}
-            <div class="col-sm-4">
-                <div class="panel panel-background">
-                    <a href="{% url 'pattern_detail' post.slug%}">
-                        <div class="panel-heading">{{post.title}}</div>
-                    </a>
-                    {% if 'placeholder' in post.featured_image.url %}
-                    <div class="panel-body">
-                        <img src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg"
-                            class="img-responsive custom-img-size-index " alt="Image">
-                    </div>
-                    {% else %}
-                    <div class="panel-body">
-                        <img src="{{ post.featured_image.url }}" class="img-responsive custom-img-size-index"
-                            alt="Featured pattern image">
-                    </div>
-                    {% endif %}
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p class="author">Added by: {{post.author}}</p>
-                            </div>
-                            <div class="col-sm-6 text-right">
-                                <p class="index-likes"><i class="far fa-heart"></i> {{post.number_of_likes}}</p>
-                            </div>
+</div>
+<br>
+<div class="container featured-cards">
+    <div class="row">
+        {% for post in posted_patterns %}
+        {% if post.featured_pattern %}
+        {% if forloop.counter <= 3 %}
+        <div class="col-sm-4">
+            <div class="panel panel-background">
+                <a href="{% url 'pattern_detail' post.slug%}">
+                    <div class="panel-heading">{{post.title}}</div>
+                </a>
+                {% if 'placeholder' in post.featured_image.url %}
+                <div class="panel-body">
+                    <img src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1677756963/placeholder_makeitsew_zlh2qk.jpg"
+                        class="img-responsive custom-img-size-index " alt="Image">
+                </div>
+                {% else %}
+                <div class="panel-body">
+                    <img src="{{ post.featured_image.url }}" class="img-responsive custom-img-size-index"
+                        alt="Featured pattern image">
+                </div>
+                {% endif %}
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="author">Added by: {{post.author}}</p>
                         </div>
-                        <div class="row panel-footer">
-                            <div class="col-sm-12">
-                                <p class="panel-excerpt">{{post.excerpt}}</p>
-                            </div>
+                        <div class="col-sm-6 text-right">
+                            <p class="index-likes"><i class="far fa-heart"></i> {{post.number_of_likes}}</p>
+                        </div>
+                    </div>
+                    <div class="row panel-footer">
+                        <div class="col-sm-12">
+                            <p class="panel-excerpt">{{post.excerpt}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endif %}
-            {% endif %}
-            {%endfor%}
-        </div><br>
-{% endblock %}
+        </div>
+        {% endif %}
+        {% endif %}
+        {%endfor%}
+    </div><br>
+    {% endblock %}

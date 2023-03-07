@@ -10,10 +10,10 @@ h1, h3 {
 
 body {
   font-family: 'Handlee', cursive; 
-  background-image: url('https://res.cloudinary.com/dbgnna5vv/image/upload/v1678209421/background-makeitsew_e04df4.jpg');
+  /*background-image: url('https://res.cloudinary.com/dbgnna5vv/image/upload/v1678209421/background-makeitsew_e04df4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
+  background-position: center top;*/
 }
 
 .pages-background {
@@ -42,19 +42,23 @@ body {
 /*Jumbotron*/
 
  .jumbotron-fluid { 
-  height: 250px;
+  background-image: url('https://res.cloudinary.com/dbgnna5vv/image/upload/v1678209421/background-makeitsew_e04df4.jpg');
+  height: 110vh;
   width: 100%;
   background-size: cover;
-  background-position: center top;
+  background-position: center;
 }
 
 .index-heading {
-  color: #9A7296;
-  font-size: 10em;
+  color: #9a7296;
+  font-size: 10vh;
 }
 
 .blurb-text {
-  color: #9A7296;
+  color: black;
+  font-size: 2vh;
+  font-weight: bold;
+  background-color: rgb(255, 255, 255, 0.3);
 }
 
 /*Footer*/
@@ -71,12 +75,13 @@ body {
 
 .footer li {
   list-style-type: none;
-  padding-right: 10px;
+  padding-right: 60px;
   display: inline-block;
 }
 
 .footer a {
-  color: antiquewhite;
+  color: #9a7296;
+  font-size: 30px;
 }
 
 /* Cards */
@@ -112,6 +117,10 @@ body {
 
 .index-likes {
 justify-content: right;
+}
+
+.featured-cards {
+  height: 70vh;
 }
 
 /*Detailed pattern page*/
