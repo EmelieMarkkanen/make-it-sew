@@ -1,7 +1,16 @@
+/* Fonts from https://fonts.google.com/ */
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
 /*Body*/
 
+h1, h3 {
+  font-family: 'La Belle Aurore', cursive;
+}
+
 body {
-  background-image: url('https://res.cloudinary.com/dbgnna5vv/image/upload/v1677871172/Shutterstock_794191939_r79dvu.jpg');
+  font-family: 'Handlee', cursive; 
+  background-image: url('https://res.cloudinary.com/dbgnna5vv/image/upload/v1678209421/background-makeitsew_e04df4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -19,11 +28,15 @@ body {
 
 /*Navbar*/
 
+.nav-logo {
+  height: 30px;
+}
+
 .navbar {
   position: sticky;
   width: 100%;
   border-radius: 0;
-  background-color: #1E1E1E;
+  background-color: rgb(242, 232, 241);
 }
 
 /*Jumbotron*/
@@ -35,10 +48,19 @@ body {
   background-position: center top;
 }
 
+.index-heading {
+  color: #9A7296;
+  font-size: 10em;
+}
+
+.blurb-text {
+  color: #9A7296;
+}
+
 /*Footer*/
 
 .footer {
-  background-color: rgba(30, 30, 30, 0.8);
+  background-color: rgba(242, 232, 241, 0.8);
   height: 50px;
   padding: 40px;
 }
@@ -60,8 +82,13 @@ body {
 /* Cards */
 
 .panel-heading {
-  background-color: #1E1E1E;
+  background-color: #9A7296;
   opacity: 0.8;
+  color: black;
+}
+
+.panel-background a:hover {
+  text-decoration: none;
 }
 
 .panel-background {

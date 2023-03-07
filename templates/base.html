@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Make it Sew</title>
     <meta name="description" content="Make it Sew">
@@ -30,11 +29,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{% url 'index' %}">Logo</a>
+                <a class="navbar-brand" href="{% url 'index' %}"><img class="nav-logo" src="https://res.cloudinary.com/dbgnna5vv/image/upload/v1678208251/sewing_hciail.png" alt="Sewing machine logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                    <li class=""><a href="{% url 'index' %}">Home</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'all_patterns' %}">All patterns</a></li>
                     <li><a href="#">My patterns</a></li>

@@ -53,9 +53,9 @@ pages-background
                 {% for comment in post.comments.all %}
                 <div class="bg-white p-2">
                     <div class="d-flex flex-column justify-content-start ml-2">
-                        <span class="d-block font-weight-bold name">{{comment.name}}</span>
+                        <span class="d-block font-weight-bold author-name">{{comment.name}}</span>
                         <br>
-                        <span class="d-block font-weight-bold name">{{comment.created_on}}</span></div>
+                        <span class="d-block font-weight-bold comment-date">{{comment.created_on}}</span></div>
                     <div class="mt-2">
                         <p class="comment-text">{{comment.body}}</p>
                     </div>
