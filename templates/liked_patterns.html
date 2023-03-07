@@ -27,41 +27,41 @@ pages-background
                         alt="Featured pattern image">
                 </div>
                 {% endif %}
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p class="author">Added by: {{post.author}}</p>
-                            </div>
-                            <div class="col-sm-6 text-right">
-                                <p class="index-likes"><i class="far fa-heart"></i> {{post.number_of_likes}}</p>
-                            </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="author">Added by: {{post.author}}</p>
                         </div>
-                        <div class="row panel-footer">
-                            <div class="col-sm-12">
-                                <p class="panel-excerpt">{{post.excerpt}}</p>
-                            </div>
+                        <div class="col-sm-6 text-right">
+                            <p class="index-likes"><i class="far fa-heart"></i> {{post.number_of_likes}}</p>
+                        </div>
+                    </div>
+                    <div class="row panel-footer">
+                        <div class="col-sm-12">
+                            <p class="panel-excerpt">{{post.excerpt}}</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         {%endif%}
         {%endfor%}
     </div><br>
     <div class="pagination">
         <span class="step-links">
-          {% if page_obj.has_previous %}
+            {% if page_obj.has_previous %}
             <a href="?page=1">&laquo; first</a>
             <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; prev</a>
-          {% endif %}
-      
-          <span class="current-page">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-          </span>
-      
-          {% if page_obj.has_next %}
+            {% endif %}
+
+            <span class="current-page">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">next &rsaquo;</a>
             <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-          {% endif %}
+            {% endif %}
         </span>
-      </div>
-{% endblock %}
+    </div>
+    {% endblock %}
