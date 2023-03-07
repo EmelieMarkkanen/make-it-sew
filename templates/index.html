@@ -16,6 +16,9 @@
 <br>
 <div class="container featured-cards">
     <div class="row">
+        <div>
+            <h2 class="text-center">Featured patterns</h2>
+        </div>
         {% for post in posted_patterns %}
         {% if post.featured_pattern %}
         {% if forloop.counter <= 3 %}
@@ -55,5 +58,10 @@
         {% endif %}
         {% endif %}
         {%endfor%}
+    <div class="text-center">
+        {% if not user.is_authenticated %}
+        <a href="{% url 'account_login'%}"><button class="btn btn-primary btn-rounded signin-button">Sign in to view all patterns</button></a>
+        {%endif%}
+    </div>
     </div><br>
     {% endblock %}
