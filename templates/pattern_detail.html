@@ -40,7 +40,7 @@ pages-background
         <br>
         <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="text-right">
-                <button class="btn btn-primary btn-rounded download-button">Download pattern</button>
+                <button class="btn btn-rounded pink-button">Download pattern</button>
             </div>
         </div>
     </div>
@@ -65,11 +65,11 @@ pages-background
                     <textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
                 <br>
                 {% if user.is_authenticated %}
-                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post
+                <div class="mt-2 text-right"><button class="btn btn-sm shadow-none pink-button" type="button">Post
                         comment</button></div>
                 {% else %}
                 <div class="mt-2 text-right"><a href="{% url 'account_login' %}"><button
-                            class="btn btn-primary btn-sm shadow-none" type="button">Sign in to post a
+                            class="btn btn-sm shadow-none pink-button" type="button">Sign in to post a
                             comment</button></a></div>
                 {% endif %}
             </div>

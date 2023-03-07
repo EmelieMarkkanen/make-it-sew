@@ -10,21 +10,21 @@ h1, h3 {
 
 body {
   font-family: 'Handlee', cursive; 
-  /*background-image: url('https://res.cloudinary.com/dbgnna5vv/image/upload/v1678209421/background-makeitsew_e04df4.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;*/
 }
 
 .pages-background {
-  background-image: none;
-  background-color: white;
   color: transparent;
 }
 
 .pages-background .container {
   color: black;
 }
+
+.pink-button {
+  background-color: #9A7296;
+  color: #F5E3F2;
+}
+
 
 /*Navbar*/
 
@@ -58,7 +58,8 @@ body {
   color: black;
   font-size: 2vh;
   font-weight: bold;
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgb(255, 255, 255, 0.8);
+  margin-top: 25vh;
 }
 
 /*Footer*/
@@ -89,10 +90,15 @@ body {
 .panel-heading {
   background-color: #9A7296;
   opacity: 0.8;
+  color: #F5E3F2;
+  font-size: large;
+}
+
+.panel-heading:hover {
   color: black;
 }
 
-.panel-background a:hover {
+.panel-background a {
   text-decoration: none;
 }
 
@@ -125,9 +131,6 @@ justify-content: right;
 
 /*Detailed pattern page*/
 
-.download-button{
-  
-}
 
 /*Pagination*/
 
