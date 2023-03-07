@@ -37,19 +37,23 @@ body {
 
 /*Footer*/
 
-footer {
+.footer {
   background-color: rgba(30, 30, 30, 0.8);
-  height: 100px;
+  height: 50px;
   padding: 40px;
 }
 
-footer li {
-  list-style-type: none;
-  display: inline;
-  padding-right: 10px;
+.footer ul {
+  text-align: center;
 }
 
-footer a {
+.footer li {
+  list-style-type: none;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.footer a {
   color: antiquewhite;
 }
 

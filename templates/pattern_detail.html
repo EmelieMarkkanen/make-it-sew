@@ -48,7 +48,7 @@ pages-background
 <br>
 <div class="container mt-5">
     <div class="d-flex justify-content-center row">
-        <div class="col-md-8">
+        <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="d-flex flex-column comment-section">
                 {% for comment in post.comments.all %}
                 <div class="bg-white p-2">
@@ -64,10 +64,17 @@ pages-background
                 <div class="bg-light p-2">
                     <textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
                 <br>
-                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button></div>
+                {% if user.is_authenticated %}
+                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post
+                        comment</button></div>
+                {% else %}
+                <div class="mt-2 text-right"><a href="{% url 'account_login' %}"><button
+                            class="btn btn-primary btn-sm shadow-none" type="button">Sign in to post a
+                            comment</button></a></div>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
-<br>
+
 {%endblock%}

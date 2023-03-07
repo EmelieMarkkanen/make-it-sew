@@ -39,11 +39,11 @@
                     <li><a href="{% url 'all_patterns' %}">All patterns</a></li>
                     <li><a href="#">My patterns</a></li>
                     <li><a href="{% url 'account_logout'%}">Log out</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'liked_patterns' %}"><i class="far fa-heart"></i>  Liked patterns</a></li>
-                    </ul>
-                    <ul>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'liked_patterns' %}"><i class="far fa-heart"></i> Liked patterns</a></li>
+                </ul>
+                <ul>
                     {% else %}
                     <li><a href="{% url 'account_login' %}">Sign in</a></li>
                     <li><a href="{% url 'account_signup' %}">Register</a></li>
@@ -58,16 +58,31 @@
 
         {% endblock %}
     </main>
-
-    <footer class="container-fluid text-center">
-        <span class="social-media">
-        <ul>
-            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in new tab)"><i class="fab fa-facebook-square"></i></a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noopener" aria-label="Visit our Github page (opens in new tab)"><i class="fab fa-github-square"></i></a></li>
-            <li><a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in new tab)"><i class="fab fa-twitter-square"></i></a></li>
-            <li><a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in new tab)"><i class="fab fa-instagram-square"></a></i></li>
-        </ul></span>
-    </footer>
+    <div class="footer navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                                aria-label="Visit our Facebook page (opens in new tab)"><i
+                                    class="fab fa-facebook-square"></i></a>
+                        </li>
+                        <li><a href="https://github.com/" target="_blank" rel="noopener"
+                                aria-label="Visit our Github page (opens in new tab)"><i
+                                    class="fab fa-github-square"></i></a></li>
+                        <li><a href="https://twitter.com/" target="_blank" rel="noopener"
+                                aria-label="Visit our Twitter page (opens in new tab)"><i
+                                    class="fab fa-twitter-square"></i></a>
+                        </li>
+                        <li><a href="https://instagram.com/" target="_blank" rel="noopener"
+                                aria-label="Visit our Instagram page (opens in new tab)"><i
+                                    class="fab fa-instagram-square"></a></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
