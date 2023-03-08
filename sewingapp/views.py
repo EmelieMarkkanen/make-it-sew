@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import PostPattern
 from .models import PostPattern as PP
 from django.views.generic import ListView
-from .forms import CommentForm
+from .forms import CommentForm, PatternForm
 
 
 class PostPattern(generic.ListView):
@@ -57,10 +57,8 @@ class PatternDetail(View):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.success(request, "Your comment has been submitted and is pending approval.")
         else:
             comment_form = CommentForm()
-            messages.error(request, "There was an error submitting your comment.")
 
         return render(
             request,
@@ -74,6 +72,28 @@ class PatternDetail(View):
                 "comment_form": CommentForm(),
             },
         )
+
+
+class PostPatternForm(View):
+    form_class = PatternForm
+    template_name = 'post_pattern.html'
+
+    def get(self, request):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = self.form_class(request.POST, request.FILES)
+        if form.is_valid():
+            pattern = form.save(commit=False)
+            pattern.author = request.user
+            pattern.approved = False
+            pattern.save()
+            messages.success(request, 'Your pattern has been submitted for approval.')
+            return redirect('pattern_detail', slug=pattern.slug)
+        else:
+            messages.error(request, 'There was an error posting your pattern.')
+            return render(request, self.template_name, {'form': form})
 
 
 class AllPatterns(generic.ListView):
