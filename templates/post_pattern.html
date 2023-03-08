@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
-
-
+<div class="container post-pattern-form">
+    <h1>Post a new pattern</h1>
+    {% if user.is_authenticated %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn pink-button pattern-submit-btn">Submit pattern</button>
+</form>
+</div>
+{%endif%}
 {%endblock%}

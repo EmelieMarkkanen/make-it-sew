@@ -144,6 +144,17 @@ justify-content: right;
   font-weight: bold;
 }
 
+/*Post pattern page*/
+
+.post-pattern-form {
+  position: relative;
+  height: 145vh;
+}
+.post-pattern-form button {
+  position: absolute;
+  right: 0;
+}
+
 /*Pagination*/
 
 .pagination {

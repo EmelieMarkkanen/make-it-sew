@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.html import strip_tags
+import textwrap
 from cloudinary.models import CloudinaryField
 from multiselectfield import MultiSelectField
 
@@ -57,6 +59,17 @@ class PostPattern(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+    def excerpt_slice(self):
+        if not self.excerpt:
+            # Get the first two lines of the description
+            first_two_lines = textwrap.wrap(strip_tags(self.description), width=80)[:2]
+            # Join the lines back together to create the excerpt
+            self.excerpt = ' '.join(first_two_lines)
+
+    def save(self, *args, **kwargs):
+        self.excerpt_slice()
+        super().save(*args, **kwargs)
 
 
 class PostComment(models.Model):

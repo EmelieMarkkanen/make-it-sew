@@ -21,7 +21,6 @@ class PatternForm(forms.ModelForm):
             'title',
             'file',
             'featured_image',
-            'excerpt',
             'description',
             'difficulty',
             'suggested_fabrics',

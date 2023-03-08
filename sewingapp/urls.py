@@ -9,5 +9,5 @@ urlpatterns = [
     path('liked_patterns/', views.LikedPatterns.as_view(), name='liked_patterns'),
     path('post_pattern/', views.PostPatternForm.as_view(), name='post_pattern'),
     path('accounts/', include('allauth.urls')),
-    path('<slug:slug>/', PatternDetail.as_view(), name='pattern_detail'),
+    path('<slug:slug>/', views.PatternDetail.as_view(), name='pattern_detail'),
 ]
