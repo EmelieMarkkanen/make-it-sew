@@ -66,9 +66,9 @@ class PostPattern(models.Model):
     def excerpt_slice(self):
         if not self.excerpt:
             # Get the first two lines of the description
-            first_two_lines = textwrap.wrap(strip_tags(self.description), width=20)[:2]
+            excerpt_of_description = textwrap.wrap(strip_tags(self.description), width=25)[:2]
             # Join the lines back together to create the excerpt
-            self.excerpt = ' '.join(first_two_lines)
+            self.excerpt = ' '.join(excerpt_of_description) + '...'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
