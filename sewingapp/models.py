@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.html import strip_tags
+from django.utils.text import slugify
 import textwrap
 from cloudinary.models import CloudinaryField
 from multiselectfield import MultiSelectField
@@ -36,7 +37,7 @@ class PostPattern(models.Model):
     Assigns fields and method for model
     """
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posted_patterns")
     file = CloudinaryField('pdf')
     featured_image = CloudinaryField('image', default='placeholder')
@@ -51,6 +52,8 @@ class PostPattern(models.Model):
     suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, null=True, blank=True)
     likes = models.ManyToManyField(User, related_name='pattern_like', blank=True)
 
+    prepopulated_fields = {'slug': ('title',)}
+
     class Meta:
         ordering = ["-created_on"]
 
@@ -63,11 +66,12 @@ class PostPattern(models.Model):
     def excerpt_slice(self):
         if not self.excerpt:
             # Get the first two lines of the description
-            first_two_lines = textwrap.wrap(strip_tags(self.description), width=80)[:2]
+            first_two_lines = textwrap.wrap(strip_tags(self.description), width=20)[:2]
             # Join the lines back together to create the excerpt
             self.excerpt = ' '.join(first_two_lines)
 
     def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
         self.excerpt_slice()
         super().save(*args, **kwargs)
 

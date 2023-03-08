@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.core.paginator import Paginator
 from django.contrib import messages
+from django.urls import reverse_lazy
 from .models import PostPattern
 from .models import PostPattern as PP
 from django.views.generic import ListView
@@ -89,10 +90,9 @@ class PostPatternForm(View):
             pattern.author = request.user
             pattern.approved = False
             pattern.save()
-            messages.success(request, 'Your pattern has been submitted for approval.')
-            return redirect('pattern_detail', slug=pattern.slug)
+            messages.success(request, 'Your pattern is waiting approval.')
+            return redirect(reverse_lazy('post_pattern'))
         else:
-            messages.error(request, 'There was an error posting your pattern.')
             return render(request, self.template_name, {'form': form})
 
 
