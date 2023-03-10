@@ -52,9 +52,12 @@ pages-background
         <br>
         <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="text-right">
-                <button class="btn btn-rounded pink-button download-button">Download pattern</button>
                 {% if user == post.author %}
                 <a href="{% url 'edit_pattern' slug=post.slug %}"><button class="btn btn-rounded pink-button edit-button">Edit</button></a>
+                {%elif user.is_authenticated %}
+                <button class="btn btn-rounded pink-button download-button">Download pattern</button>
+                {% else %}
+                <a href="{%url 'account_login' %}"><button class="btn btn-rounded pink-button signin-button">Sign in to download pattern</button></a>
                 {%endif%}
             </div>
         </div>

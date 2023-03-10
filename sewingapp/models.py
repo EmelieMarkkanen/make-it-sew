@@ -49,7 +49,7 @@ class PostPattern(models.Model):
     approved = models.BooleanField(default=False)
     featured_pattern = models.BooleanField(default=False)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=0)
-    suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, null=True, blank=True)
+    suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, null=True)
     likes = models.ManyToManyField(User, related_name='pattern_like', blank=True)
 
     prepopulated_fields = {'slug': ('title',)}

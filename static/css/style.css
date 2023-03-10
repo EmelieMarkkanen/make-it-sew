@@ -131,6 +131,10 @@ justify-content: right;
 
 /*Detailed pattern page*/
 
+.pattern-detail-display {
+  position: relative;
+}
+
 .comment-section {
   height: 45vh;
   font-size:medium;
@@ -142,6 +146,16 @@ justify-content: right;
 
 .author-name, .comment-text {
   font-weight: bold;
+}
+
+.download-button {
+  position: absolute;
+  right: 0;
+}
+
+.edit-button {
+  position: absolute;
+  right: 0;
 }
 
 /*Post pattern page*/
