@@ -3,6 +3,9 @@ from django.views import generic, View
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.views.generic.edit import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseForbidden
 from .models import PostPattern
 from .models import PostPattern as PP
 from django.views.generic import ListView
@@ -90,10 +93,36 @@ class PostPatternForm(View):
             pattern.author = request.user
             pattern.approved = False
             pattern.save()
-            messages.success(request, 'Your pattern is waiting approval.')
+            messages.success(request, 'Your pattern is awaiting approval from an administrator.')
             return redirect(reverse_lazy('post_pattern'))
         else:
             return render(request, self.template_name, {'form': form})
+
+
+class EditPattern(View):
+    form_class = PatternForm
+    template_name = 'edit_pattern.html'
+
+    def get(self, request, slug):
+        post = get_object_or_404(PP, slug=slug)
+        if request.user != post.author:
+            return HttpResponseForbidden()
+        form = self.form_class(instance=post)
+        return render(request, self.template_name, {'form': form, 'post': post})
+
+    def post(self, request, slug):
+        post = get_object_or_404(PP, slug=slug)
+        if request.user != post.author:
+            return HttpResponseForbidden()
+        form = self.form_class(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            pattern = form.save(commit=False)
+            pattern.author = request.user
+            pattern.save()
+            messages.success(request, 'Your changes have been saved and sent for review.')
+            return redirect('pattern_detail', slug=post.slug)
+        else:
+            return render(request, self.template_name, {'form': form, 'post': post})
 
 
 class AllPatterns(generic.ListView):

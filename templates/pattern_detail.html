@@ -10,6 +10,13 @@ pages-background
 {% endif %}
 {% endblock %}
 
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <p {% if message.tags %} class="{{ message.tags }} alert alert-success" role="alert" {% endif %}>{{ message }}</p>
+    {% endfor %}
+</div>
+{%endif%}
 <div class="container detailed-pattern-display">
     <div class="card">
         <div class="card-body">
@@ -46,6 +53,9 @@ pages-background
         <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="text-right">
                 <button class="btn btn-rounded pink-button download-button">Download pattern</button>
+                {% if user == post.author %}
+                <a href="{% url 'edit_pattern' slug=post.slug %}"><button class="btn btn-rounded pink-button edit-button">Edit</button></a>
+                {%endif%}
             </div>
         </div>
     </div>

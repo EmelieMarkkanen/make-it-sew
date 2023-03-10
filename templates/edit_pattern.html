@@ -1,7 +1,25 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
-
-
+<div class="container post-pattern-form">
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <p {% if message.tags %} class="{{ message.tags }} alert alert-success" role="alert" {% endif %}>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <h1>Edit pattern</h1>
+    {% if user.is_authenticated %}
+    <form method="post" enctype="multipart/form-data" action="{% url 'edit_pattern' slug=post.slug %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="hidden" name="slug" value="{{ slug }}">
+    <button type="submit" class="btn pink-button pattern-submit-btn">Save changes</button>
+</form>
+</div>
+{%endif%}
 {%endblock%}
