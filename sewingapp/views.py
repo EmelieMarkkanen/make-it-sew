@@ -143,6 +143,26 @@ class AllPatterns(generic.ListView):
         return context
 
 
+class MyPatterns(generic.ListView):
+
+    model = PostPattern
+    template_name = 'my_patterns.html'
+
+    def get(self, request):
+
+        queryset = PP.objects.filter(
+            author=request.user.id).order_by('-created_on')
+        queryset_dict = {
+            'my_patterns': queryset
+        }
+
+        return render(
+            request,
+            self.template_name,
+            queryset_dict
+        )
+
+
 class LikedPatterns(generic.ListView):
 
     model = PostPattern

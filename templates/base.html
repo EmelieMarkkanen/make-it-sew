@@ -36,7 +36,7 @@
                     <li class=""><a href="{% url 'index' %}">Home</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'all_patterns' %}">All patterns</a></li>
-                    <li><a href="#">My patterns</a></li>
+                    <li><a href="{% url 'my_patterns' %}">My patterns</a></li>
                     <li><a href="{% url 'post_pattern' %}">Post pattern</a></li>
                     <li><a href="{% url 'account_logout'%}">Sign out</a></li>
                 </ul>
