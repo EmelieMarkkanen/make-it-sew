@@ -78,9 +78,10 @@ class PatternDetail(View):
         )
 
 
-class PostPatternForm(View):
+class PostPatternForm(LoginRequiredMixin, View):
     form_class = PatternForm
     template_name = 'post_pattern.html'
+    login_url = reverse_lazy('login')
 
     def get(self, request):
         form = self.form_class()
