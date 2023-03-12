@@ -49,7 +49,7 @@
                     </div>
                     <div class="row panel-footer">
                         <div class="col-sm-12">
-                            <p class="panel-excerpt">{{post.excerpt}}</p>
+                           <a href="{% url 'pattern_detail' post.slug%}"><p class="panel-excerpt">{{post.excerpt}}</p></a> 
                         </div>
                     </div>
                 </div>

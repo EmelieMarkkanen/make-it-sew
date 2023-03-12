@@ -39,6 +39,7 @@ body {
   background-color: rgb(242, 232, 241);
 }
 
+
 /*Jumbotron*/
 
  .jumbotron-fluid { 
@@ -119,6 +120,14 @@ body {
 
 .panel-footer{
   opacity: 0.8;
+}
+
+.panel-footer a {
+  color: black;
+}
+
+.panel-footer a:hover {
+  color: #9a7296;
 }
 
 .index-likes {
