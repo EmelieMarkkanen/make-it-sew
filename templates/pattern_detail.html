@@ -20,7 +20,18 @@ pages-background
 <div class="container detailed-pattern-display">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title"><i class="far fa-heart"></i> {{post.number_of_likes}}</h4>
+            {% if user.is_authenticated %}
+            <form class="" action="{% url 'pattern_like' post.slug %}" method="POST">
+                {% csrf_token %}
+                {% if post.liked %}
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i> {{post.number_of_likes}}</button>
+                {% else %}
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i> {{post.number_of_likes}}</button>
+                {% endif %}
+            </form>
+            {%else%}
+            <h4 class="card-title"><i class="far fa-heart"></i>{{post.number_of_likes}}</h4>
+            {%endif%}
             <div class="row">
                 {% if 'placeholder' in post.featured_image.url %}
                 <div class="col-lg-5 col-md-3 col-sm-6">

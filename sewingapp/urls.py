@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include
-from .views import PatternDetail, PostPattern, AllPatterns, EditPattern, PP
+from .views import PatternDetail, PostPattern, AllPatterns, EditPattern, PP, PatternLike
 
 urlpatterns = [
     path('', views.PostPattern.as_view(), name='index'),
@@ -10,5 +10,6 @@ urlpatterns = [
     path('post_pattern/', views.PostPatternForm.as_view(), name='post_pattern'),
     path('accounts/', include('allauth.urls')),
     path('edit_pattern/<slug:slug>/', views.EditPattern.as_view(), name='edit_pattern'),
+    path('like/<slug:slug>/', views.PatternLike.as_view(), name='pattern_like'),
     path('<slug:slug>/', views.PatternDetail.as_view(), name='pattern_detail'),
 ]

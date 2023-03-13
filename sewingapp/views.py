@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
+from django.http import HttpResponseRedirect
 from .models import PostPattern
 from .models import PostPattern as PP
 from django.views.generic import ListView
@@ -28,7 +29,7 @@ class PatternDetail(View):
         page = 'pattern_detail'
         approved = False
         liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
+        if post.likes.filter(id=request.user.id).exists():
             liked = True
 
         return render(
@@ -53,7 +54,13 @@ class PatternDetail(View):
         comments = post.comments.filter(approved=True).order_by("-created_on")
         page = 'pattern_detail'
         liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
+        if post.likes.filter(id=request.user.id).exists():
+            liked = True
+
+        if 'postpattern_id' in request.POST:
+            post.number_of_likes += 1
+            post.likes.add(request.user)
+            post.save()
             liked = True
 
         comment_form = CommentForm(data=request.POST)
@@ -161,6 +168,23 @@ class MyPatterns(generic.ListView):
             self.template_name,
             queryset_dict
         )
+
+
+class PatternLike(View):
+
+    def post(self, request, slug):
+        """
+        Post method for liking and unliking a pattern.
+        """
+
+        pattern = get_object_or_404(PP, slug=slug, status=1)
+
+        if pattern.likes.filter(id=request.user.id).exists():
+            pattern.likes.remove(request.user)
+        else:
+            pattern.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse_lazy('pattern_detail', args=[slug]))
 
 
 class LikedPatterns(generic.ListView):
