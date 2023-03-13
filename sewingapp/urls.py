@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include
-from .views import PatternDetail, PostPattern, AllPatterns, EditPattern, PP, PatternLike, LikedPatterns
+from .views import PatternDetail, PostPattern, AllPatterns, EditPattern, PP, PatternLike, LikedPatterns, DeletePattern
 
 urlpatterns = [
     path('', views.PostPattern.as_view(), name='index'),
@@ -11,5 +11,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('edit_pattern/<slug:slug>/', views.EditPattern.as_view(), name='edit_pattern'),
     path('like/<slug:slug>/', views.PatternLike.as_view(), name='pattern_like'),
+    path('delete/<slug:slug>/', views.DeletePattern.as_view(), name='delete_pattern'),
     path('<slug:slug>/', views.PatternDetail.as_view(), name='pattern_detail'),
 ]

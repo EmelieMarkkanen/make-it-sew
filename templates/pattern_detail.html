@@ -13,7 +13,7 @@ pages-background
 {% if messages %}
 <div class="messages">
     {% for message in messages %}
-        <p {% if message.tags %} class="{{ message.tags }} alert alert-success" role="alert" {% endif %}>{{ message }}</p>
+    <p {% if message.tags %} class="{{ message.tags }} alert alert-success" role="alert" {% endif %}>{{ message }}</p>
     {% endfor %}
 </div>
 {%endif%}
@@ -24,9 +24,11 @@ pages-background
             <form class="like-form" action="{% url 'pattern_like' post.slug %}" method="POST">
                 {% csrf_token %}
                 {% if post.liked %}
-                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button> <span class="like">{{post.number_of_likes}}</span>
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i
+                        class="far fa-heart"></i></button> <span class="like">{{post.number_of_likes}}</span>
                 {% else %}
-                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button> <span class="like">{{post.number_of_likes}}</span>
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i
+                        class="far fa-heart"></i></button> <span class="like">{{post.number_of_likes}}</span>
                 {% endif %}
             </form>
             {%else%}
@@ -64,13 +66,33 @@ pages-background
         <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="text-right">
                 {% if user == post.author %}
-                <span><a href="{% url 'edit_pattern' slug=post.slug %}"><button class="btn btn-rounded pink-button edit-button">Edit</button></a></span>
-                <span><a href="#"><button class="btn btn-rounded delete-button">Delete</button></a></span>
-                <br>
+                <span><a href="{% url 'edit_pattern' slug=post.slug %}"><button
+                            class="btn btn-rounded pink-button edit-button">Edit</button></a></span>
+                <span><button class="btn btn-rounded delete-button" data-toggle="modal"
+                        data-target="#deleteModal">Delete</button></span>
+                <!--Modal opening if user click on the delete button-->
+                <div class="modal" id="deleteModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center">Do you really want to delete this pattern?</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-footer">
+                                <form method="post" action="{% url 'delete_pattern' post.slug %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-rounded btn-danger">Delete</button>
+                                </form>
+                                <button type="button" class="btn btn-rounded btn-primary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {%elif user.is_authenticated %}
                 <button class="btn btn-rounded pink-button download-button">Download pattern</button>
                 {% else %}
-                <a href="{%url 'account_login' %}"><button class="btn btn-rounded pink-button signin-button">Sign in to download pattern</button></a>
+                <a href="{%url 'account_login' %}"><button class="btn btn-rounded pink-button signin-button">Sign in to
+                        download pattern</button></a>
                 {%endif%}
             </div>
         </div>

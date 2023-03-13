@@ -7,6 +7,7 @@ from django.views.generic.edit import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import DeleteView
 from .models import PostPattern
 from .models import PostPattern as PP
 from django.views.generic import ListView
@@ -176,7 +177,6 @@ class PatternLike(View):
         """
         Post method for liking and unliking a pattern.
         """
-
         pattern = get_object_or_404(PP, slug=slug)
 
         if pattern.likes.filter(id=request.user.id).exists():
@@ -193,9 +193,17 @@ class LikedPatterns(generic.ListView):
         """
         Get method to render template and return queryset objects.
         """
-
         user = request.user
         liked_patterns = PP.objects.filter(likes=user).filter(status=1)
         context = {'liked_patterns': liked_patterns}
 
         return render(request, 'liked_patterns.html', context)
+
+
+class DeletePattern(DeleteView):
+    model = PostPattern
+    success_url = reverse_lazy('my_patterns')
+
+    def get_object(self):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(PP, slug=slug)
