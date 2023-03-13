@@ -158,8 +158,7 @@ class MyPatterns(generic.ListView):
 
     def get(self, request):
 
-        queryset = PP.objects.filter(
-            author=request.user.id).order_by('-created_on')
+        queryset = PP.objects.filter(author=request.user.id).order_by('-created_on').filter(status=1)
         queryset_dict = {
             'my_patterns': queryset
         }
@@ -207,3 +206,7 @@ class DeletePattern(DeleteView):
     def get_object(self):
         slug = self.kwargs.get('slug')
         return get_object_or_404(PP, slug=slug)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, 'Pattern was successfully deleted')
+        return super().delete(request, *args, **kwargs)
