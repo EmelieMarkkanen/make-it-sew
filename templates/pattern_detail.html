@@ -89,10 +89,10 @@ pages-background
                     </div>
                 </div>
                 {%elif user.is_authenticated %}
-                <button class="btn btn-rounded pink-button download-button">Download pattern</button>
+                <a href="{{ post.file.url }}" target="_blank"><button class="btn btn-rounded pink-button download-button">View pattern</button></a>
                 {% else %}
                 <a href="{%url 'account_login' %}"><button class="btn btn-rounded pink-button signin-button">Sign in to
-                        download pattern</button></a>
+                        view pattern</button></a>
                 {%endif%}
             </div>
         </div>
