@@ -218,6 +218,18 @@ justify-content: right;
   right: 0;
 }
 
+/* Liked patterns page*/
+
+.liked-patterns {
+  height: 120vh;
+}
+
+/* My patterns page */
+
+.my-patterns {
+  height: 120vh;
+}
+
 /*Pagination*/
 
 .pagination {
@@ -225,3 +237,7 @@ justify-content: right;
   justify-content: center;
   height: 10vh;
 }
+
+
+/* Media queries */
+

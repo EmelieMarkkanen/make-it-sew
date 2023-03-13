@@ -8,10 +8,10 @@ pages-background
 {% endif %}
 {% endblock %}
 
-<div class="container">
+<div class="container liked-patterns">
     <div class="row">
         {% for post in liked_patterns %}
-        <div class="col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="panel panel-background">
                 <a href="{% url 'pattern_detail' post.slug%}">
                     <div class="panel-heading">{{post.title}}</div>
@@ -62,6 +62,7 @@ pages-background
     </div>
     {%endif%}
 
+    {% if liked_patterns|length >= 7 %}
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
@@ -79,4 +80,5 @@ pages-background
             {% endif %}
         </span>
     </div>
+    {%endif%}
     {% endblock %}

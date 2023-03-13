@@ -11,7 +11,7 @@ pages-background
 <div class="container all-patterns-view">
     <div class="row">
         {% for post in posted_patterns%}
-        <div class="col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="panel panel-background">
                 <a href="{% url 'pattern_detail' post.slug%}">
                     <div class="panel-heading">{{post.title}}</div>

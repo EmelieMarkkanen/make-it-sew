@@ -9,7 +9,7 @@ pages-background
 {% endblock %}
 
 
-<div class="container all-patterns-view">
+<div class="container my-patterns">
     {% if messages %}
     <div class="messages">
         {% for message in messages %}
@@ -19,7 +19,7 @@ pages-background
     {%endif%}
     <div class="row">
         {% for post in my_patterns %}
-        <div class="col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="panel panel-background">
                 <a href="{% url 'pattern_detail' post.slug%}">
                     <div class="panel-heading">{{post.title}}</div>
@@ -72,7 +72,7 @@ pages-background
         </div>
     </div>
     {%endif%}
-
+    {% if my_patterns|length >= 7 %}
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
@@ -90,5 +90,6 @@ pages-background
             {% endif %}
         </span>
     </div>
+    {%endif%}
 
     {%endblock%}
