@@ -111,25 +111,22 @@ class PostPatternForm(LoginRequiredMixin, View):
             return render(request, self.template_name, {'form': form})
 
 
-class EditPattern(View):
+class EditPattern(LoginRequiredMixin, View):
     form_class = PatternForm
     template_name = 'edit_pattern.html'
 
     def get(self, request, slug):
-        post = get_object_or_404(PP, slug=slug)
-        if request.user != post.author:
-            return HttpResponseForbidden()
+        post = get_object_or_404(PP, slug=slug, author=request.user)
         form = self.form_class(instance=post)
         return render(request, self.template_name, {'form': form, 'post': post})
 
     def post(self, request, slug):
-        post = get_object_or_404(PP, slug=slug)
-        if request.user != post.author:
-            return HttpResponseForbidden()
+        post = get_object_or_404(PP, slug=slug, author=request.user)
         form = self.form_class(request.POST, request.FILES, instance=post)
         if form.is_valid():
             pattern = form.save(commit=False)
             pattern.author = request.user
+            pattern.approved = False
             pattern.save()
             messages.success(request, 'Your changes have been saved and sent for review.')
             return redirect('pattern_detail', slug=post.slug)
@@ -199,13 +196,13 @@ class LikedPatterns(generic.ListView):
         return render(request, 'liked_patterns.html', context)
 
 
-class DeletePattern(DeleteView):
+class DeletePattern(LoginRequiredMixin, DeleteView):
     model = PostPattern
     success_url = reverse_lazy('my_patterns')
 
     def get_object(self):
         slug = self.kwargs.get('slug')
-        return get_object_or_404(PP, slug=slug)
+        return get_object_or_404(PP, slug=slug, author=request.user)
 
     def delete(self, request, *args, **kwargs):
         messages.success(request, 'Pattern was successfully deleted')
