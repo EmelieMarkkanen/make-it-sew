@@ -25,6 +25,10 @@ body {
   color: #F5E3F2;
 }
 
+.pink-button:hover {
+  color: black;
+}
+
 
 /*Navbar*/
 
@@ -169,6 +173,11 @@ justify-content: right;
 .delete-button {
   display: inline-block;
   background-color:#e06075;
+  color: #F5E3F2;
+}
+
+.delete-button:hover{
+  color: black;
 }
 
 .btn-like {
