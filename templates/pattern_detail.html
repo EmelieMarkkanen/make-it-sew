@@ -64,7 +64,9 @@ pages-background
         <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="text-right">
                 {% if user == post.author %}
-                <a href="{% url 'edit_pattern' slug=post.slug %}"><button class="btn btn-rounded pink-button edit-button">Edit</button></a>
+                <span><a href="{% url 'edit_pattern' slug=post.slug %}"><button class="btn btn-rounded pink-button edit-button">Edit</button></a></span>
+                <span><a href="#"><button class="btn btn-rounded pink-button delete-button">Delete</button></a></span>
+                <br>
                 {%elif user.is_authenticated %}
                 <button class="btn btn-rounded pink-button download-button">Download pattern</button>
                 {% else %}

@@ -163,8 +163,12 @@ justify-content: right;
 }
 
 .edit-button {
-  position: absolute;
-  right: 0;
+  display: inline-block;
+}
+
+.delete-button {
+  display: inline-block;
+  background-color:#e06075;
 }
 
 .btn-like {
