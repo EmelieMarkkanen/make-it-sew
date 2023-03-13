@@ -183,6 +183,7 @@ class PatternLike(View):
             pattern.likes.remove(request.user)
         else:
             pattern.likes.add(request.user)
+            messages.success(request, 'Pattern was saved to your liked patterns!')
 
         return HttpResponseRedirect(reverse_lazy('pattern_detail', args=[slug]))
 

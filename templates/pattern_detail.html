@@ -24,9 +24,9 @@ pages-background
             <form class="like-form" action="{% url 'pattern_like' post.slug %}" method="POST">
                 {% csrf_token %}
                 {% if post.liked %}
-                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like-solid"><i class="fas fa-heart"></i> {{post.number_of_likes}}</button>
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button> <span class="like">{{post.number_of_likes}}</span>
                 {% else %}
-                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like-outline"><i class="far fa-heart"></i> {{post.number_of_likes}}</button>
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button> <span class="like">{{post.number_of_likes}}</span>
                 {% endif %}
             </form>
             {%else%}
