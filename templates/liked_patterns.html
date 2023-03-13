@@ -10,8 +10,7 @@ pages-background
 
 <div class="container">
     <div class="row">
-        {% for post in posted_patterns%}
-        {% if post.liked %}
+        {% for post in liked_patterns %}
         <div class="col-sm-4">
             <div class="panel panel-background">
                 <a href="{% url 'pattern_detail' post.slug%}">
@@ -44,7 +43,6 @@ pages-background
                 </div>
             </div>
         </div>
-        {%endif%}
         {%endfor%}
     </div><br>
     <div class="pagination">

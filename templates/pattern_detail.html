@@ -21,12 +21,12 @@ pages-background
     <div class="card">
         <div class="card-body">
             {% if user.is_authenticated %}
-            <form class="" action="{% url 'pattern_like' post.slug %}" method="POST">
+            <form class="like-form" action="{% url 'pattern_like' post.slug %}" method="POST">
                 {% csrf_token %}
                 {% if post.liked %}
-                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i> {{post.number_of_likes}}</button>
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like-solid"><i class="fas fa-heart"></i> {{post.number_of_likes}}</button>
                 {% else %}
-                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i> {{post.number_of_likes}}</button>
+                <button type="submit" name="postpattern_id" value="{{post.slug}}" class="btn-like-outline"><i class="far fa-heart"></i> {{post.number_of_likes}}</button>
                 {% endif %}
             </form>
             {%else%}

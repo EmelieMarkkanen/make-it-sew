@@ -177,7 +177,7 @@ class PatternLike(View):
         Post method for liking and unliking a pattern.
         """
 
-        pattern = get_object_or_404(PP, slug=slug, status=1)
+        pattern = get_object_or_404(PP, slug=slug)
 
         if pattern.likes.filter(id=request.user.id).exists():
             pattern.likes.remove(request.user)
@@ -188,14 +188,13 @@ class PatternLike(View):
 
 
 class LikedPatterns(generic.ListView):
+    def get(self, request, *args, **kwargs):
+        """
+        Get method to render template and return queryset objects.
+        """
 
-    model = PostPattern
-    queryset = PP.objects.filter(status=1).order_by('-created_on')
-    template_name = "liked_patterns.html"
-    paginate_by = 6
-    context_object_name = 'posted_patterns'
+        user = request.user
+        liked_patterns = PP.objects.filter(likes=user).filter(status=1)
+        context = {'liked_patterns': liked_patterns}
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['page'] = 'liked_patterns'
-        return context
+        return render(request, 'liked_patterns.html', context)

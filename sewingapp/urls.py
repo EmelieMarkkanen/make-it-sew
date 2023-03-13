@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include
-from .views import PatternDetail, PostPattern, AllPatterns, EditPattern, PP, PatternLike
+from .views import PatternDetail, PostPattern, AllPatterns, EditPattern, PP, PatternLike, LikedPatterns
 
 urlpatterns = [
     path('', views.PostPattern.as_view(), name='index'),
