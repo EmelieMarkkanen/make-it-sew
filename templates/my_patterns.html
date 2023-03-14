@@ -72,7 +72,7 @@ pages-background
         </div>
     </div>
     {%endif%}
-    {% if my_patterns|length >= 7 %}
+
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
@@ -90,6 +90,5 @@ pages-background
             {% endif %}
         </span>
     </div>
-    {%endif%}
 
     {%endblock%}

@@ -152,6 +152,7 @@ class MyPatterns(generic.ListView):
 
     model = PostPattern
     template_name = 'my_patterns.html'
+    paginate_by = 6
 
     def get(self, request):
 
@@ -185,13 +186,18 @@ class PatternLike(View):
 
 
 class LikedPatterns(generic.ListView):
+    paginate_by = 6
+    
     def get(self, request, *args, **kwargs):
         """
         Get method to render template and return queryset objects.
         """
         user = request.user
         liked_patterns = PP.objects.filter(likes=user).filter(status=1)
-        context = {'liked_patterns': liked_patterns}
+        paginator = Paginator(liked_patterns, self.paginate_by)
+        page = request.GET.get('page')
+        liked_patterns = paginator.get_page(page)
+        context = {'liked_patterns': liked_patterns, 'page_obj': liked_patterns}
 
         return render(request, 'liked_patterns.html', context)
 
