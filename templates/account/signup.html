@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<!-- Sign up page -->
 
 {% load i18n %}
 
@@ -13,7 +14,7 @@
 
         <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign
             in</a>.{% endblocktrans %}</p>
-
+        <!-- sign up form -->
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
           {% csrf_token %}
           {{ form.as_p }}

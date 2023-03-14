@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- Jumbotron -->
 <div class="jumbotron-fluid">
     <div class="container text-center">
         <h1 class="index-heading">Make it Sew</h1>
@@ -27,6 +27,7 @@
     </div>
 </div>
 <br>
+<!-- Featured patterns display -->
 <div class="container featured-cards">
     <div class="row">
         <div>
@@ -73,6 +74,7 @@
         {% endif %}
         {% endif %}
         {%endfor%}
+        <!-- Sign in button is shown if user is not logged in, redirecting to the sign in template -->
         <div class="text-center">
             {% if not user.is_authenticated %}
             <a href="{% url 'account_login'%}"><button class="btn btn-rounded pink-button">Sign in to view all

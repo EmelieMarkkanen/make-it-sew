@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- Sets body class for styling-->
 {% block body_class %}
 {% if page == 'my_patterns' %}
 pages-background
 {% endif %}
 {% endblock %}
 
-
+<!-- Display users posted patterns -->
 <div class="container my-patterns">
+    <!-- Display message after user is redirected to template after editing a pattern -->
     {% if messages %}
     <div class="messages">
         {% for message in messages %}
@@ -55,7 +56,7 @@ pages-background
         </div>
         {%endfor%}
     </div><br>
-
+    <!-- Displayed if user have not posted any patterns -->
     {% if my_patterns|length == 0 %}
     <div class="container-fluid logout-page text-center">
         <div class="row">
@@ -72,7 +73,7 @@ pages-background
         </div>
     </div>
     {%endif%}
-
+    <!-- Pagination -->
     {% if my_patterns.has_other_pages %}
     <div class="pagination">
         <span class="step-links">

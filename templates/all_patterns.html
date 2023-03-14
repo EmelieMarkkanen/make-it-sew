@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- Sets body class for styling-->
 {% block body_class %}
 {% if page == 'all_patterns' %}
 pages-background
 {% endif %}
 {% endblock %}
-
+<!-- All patterns display, iterating through posted and approved patterns -->
 <div class="container all-patterns-view">
     <div class="row">
         {% for post in posted_patterns%}
@@ -45,6 +45,7 @@ pages-background
             </div>
         {%endfor%}
     </div><br>
+    <!-- Pagination -->
     {% if page_obj.has_other_pages %}
     <div class="pagination">
         <span class="step-links">

@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- Sets body class for styling-->
 {% block body_class %}
 {% if page == 'liked_patterns' %}
 pages-background
 {% endif %}
 {% endblock %}
 
+<!-- Display liked patterns -->
 <div class="container liked-patterns">
     <div class="row">
         {% for post in liked_patterns %}
@@ -45,7 +46,7 @@ pages-background
         </div>
         {%endfor%}
     </div><br>
-
+    <!-- Displayed if user have not liked any patterns -->
     {% if liked_patterns|length == 0 %}
     <div class="container-fluid logout-page text-center">
         <div class="row">
@@ -61,7 +62,7 @@ pages-background
         </div>
     </div>
     {%endif%}
-
+    <!-- Pagination -->
     {% if liked_patterns.has_other_pages %}
     <div class="pagination">
         <span class="step-links">

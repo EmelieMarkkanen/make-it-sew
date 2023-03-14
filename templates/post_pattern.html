@@ -3,8 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
+<!-- Post pattern form -->
 <div class="container post-pattern-form">
+    <!-- Display message after user posts a pattern -->
     {% if messages %}
     <div class="messages">
         {% for message in messages %}

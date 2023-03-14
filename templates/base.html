@@ -22,6 +22,7 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
+    <!-- Navigation -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -55,12 +56,13 @@
             </div>
         </div>
     </nav>
-
+    <!-- Main content -->
     <main>
         {% block content %}
 
         {% endblock %}
     </main>
+    <!-- Footer -->
     <div class="container footer navbar-fixed-bottom">
         <div class="row">
             <div class="col-md-12">
