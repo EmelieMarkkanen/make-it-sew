@@ -5,12 +5,25 @@
 <div class="jumbotron-fluid">
     <div class="container text-center">
         <h1 class="index-heading">Make it Sew</h1>
-        <p class="blurb-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.</p>
+        <p class="blurb-text">
+            Welcome to Make it Sew - an easy to use online platform for sewing enthusiasts! <br>
+            Whether you're an experienced sewist or just starting out, Make it Sew has something for everyone.
+            <br>
+            <br>
+            Make it Sew allows crafters to post and share their patterns and projects with others, giving you access to
+            a wide selection of patterns to explore and enjoy.
+            You can easily browse through patterns, like and unlike them, and save them for your next project.
+            <br>
+            <br>
+            But Make it Sew isn't just about sharing patterns, it's also a community of like-minded sewing enthusiasts
+            who are passionate about creating beautiful things.
+            We encourage you to connect with others to share tips and tricks in the comment sections and spread the love
+            of crafting and sewing!
+            <br>
+            <br>
+            Join the Make it Sew community today and start sharing and creating your own amazing sewing projects!
+            <br>
+        </p>
     </div>
 </div>
 <br>
@@ -22,7 +35,7 @@
         {% for post in posted_patterns %}
         {% if post.featured_pattern %}
         {% if forloop.counter <= 3 %}
-        <div class="col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="panel panel-background">
                 <a href="{% url 'pattern_detail' post.slug%}">
                     <div class="panel-heading">{{post.title}}</div>
@@ -49,7 +62,9 @@
                     </div>
                     <div class="row panel-footer">
                         <div class="col-sm-12">
-                           <a href="{% url 'pattern_detail' post.slug%}"><p class="panel-excerpt">{{post.excerpt}}</p></a> 
+                            <a href="{% url 'pattern_detail' post.slug%}">
+                                <p class="panel-excerpt">{{post.excerpt}}</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -58,10 +73,11 @@
         {% endif %}
         {% endif %}
         {%endfor%}
-    <div class="text-center">
-        {% if not user.is_authenticated %}
-        <a href="{% url 'account_login'%}"><button class="btn btn-rounded pink-button">Sign in to view all patterns</button></a>
-        {%endif%}
-    </div>
+        <div class="text-center">
+            {% if not user.is_authenticated %}
+            <a href="{% url 'account_login'%}"><button class="btn btn-rounded pink-button">Sign in to view all
+                    patterns</button></a>
+            {%endif%}
+        </div>
     </div><br>
     {% endblock %}

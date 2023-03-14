@@ -67,6 +67,7 @@ body {
   margin-top: 25vh;
 }
 
+
 /*Footer*/
 
 .footer {
@@ -237,6 +238,15 @@ justify-content: right;
   .liked-patterns, .my-patterns, .all-patterns-view {
     height: auto;
   }
+
+  .featured-cards {
+    height: 175vh;
+  }
+
+  .blurb-text {
+    margin-top: ;
+    font-size: 100%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -252,5 +262,14 @@ justify-content: right;
   
   .footer li {
     padding-right: 10px;
+  }
+
+  .blurb-text {
+    margin-top: 5vh;
+    font-size: 100%;
+  }
+
+  .featured-cards {
+    height: 175vh;
   }
 }
