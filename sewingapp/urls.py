@@ -2,6 +2,8 @@ from . import views
 from django.urls import path, include
 from .views import PatternDetail, PostPattern, AllPatterns, EditPattern, PP, PatternLike, LikedPatterns, DeletePattern
 
+handler404 = 'sewingapp.views.handler404'
+
 urlpatterns = [
     path('', views.PostPattern.as_view(), name='index'),
     path('all_patterns/', views.AllPatterns.as_view(), name='all_patterns'),
@@ -14,3 +16,4 @@ urlpatterns = [
     path('delete/<slug:slug>/', views.DeletePattern.as_view(), name='delete_pattern'),
     path('<slug:slug>/', views.PatternDetail.as_view(), name='pattern_detail'),
 ]
+

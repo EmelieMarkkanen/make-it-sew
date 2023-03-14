@@ -4,15 +4,24 @@ from django_summernote.widgets import SummernoteWidget
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Comment Form Class.
+    Sets the model and fields for the comment form.
+    """
     class Meta:
         model = PostComment
         fields = ('body',)
 
 
 class PatternForm(forms.ModelForm):
+    """
+    PatternForm class. Sets the model and fields for the recipe form.
+    Also assigns summernote widget to description form field.
+    """
     class Meta:
         model = PostPattern
 
+        #Summernote widget
         widgets = {
             'description': SummernoteWidget(),
         }
