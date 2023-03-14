@@ -126,10 +126,10 @@ class EditPattern(LoginRequiredMixin, View):
         if form.is_valid():
             pattern = form.save(commit=False)
             pattern.author = request.user
-            pattern.approved = False
+            pattern.status = 0
             pattern.save()
-            messages.success(request, 'Your changes have been saved and sent for review.')
-            return redirect('pattern_detail', slug=post.slug)
+            messages.success(request, 'Your changes have been saved and sent for review. Pattern will be available after approval.')
+            return redirect('my_patterns')
         else:
             return render(request, self.template_name, {'form': form, 'post': post})
 
@@ -149,24 +149,18 @@ class AllPatterns(generic.ListView):
 
 
 class MyPatterns(generic.ListView):
-
     model = PostPattern
     template_name = 'my_patterns.html'
     paginate_by = 6
 
     def get(self, request):
-
-        queryset = PP.objects.filter(author=request.user.id).order_by('-created_on').filter(status=1)
-        queryset_dict = {
-            'my_patterns': queryset
-        }
-
-        return render(
-            request,
-            self.template_name,
-            queryset_dict
-        )
-
+        post_patterns = PP.objects.filter(author=request.user.id).order_by('-created_on').filter(status=1)
+        paginator = Paginator(post_patterns, self.paginate_by)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context = {'my_patterns': page_obj}
+        return render(request, self.template_name, context)
+        
 
 class PatternLike(View):
 

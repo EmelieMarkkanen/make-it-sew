@@ -73,22 +73,24 @@ pages-background
     </div>
     {%endif%}
 
+    {% if my_patterns.has_other_pages %}
     <div class="pagination">
         <span class="step-links">
-            {% if page_obj.has_previous %}
+            {% if my_patterns.has_previous %}
             <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; prev</a>
+            <a href="?page={{ my_patterns.previous_page_number }}">&lsaquo; prev</a>
             {% endif %}
-
+    
             <span class="current-page">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                Page {{ my_patterns.number }} of {{ my_patterns.paginator.num_pages }}
             </span>
-
-            {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next &rsaquo;</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+    
+            {% if my_patterns.has_next %}
+            <a href="?page={{ my_patterns.next_page_number }}">next &rsaquo;</a>
+            <a href="?page={{ my_patterns.paginator.num_pages }}">last &raquo;</a>
             {% endif %}
         </span>
     </div>
+    {% endif %}
 
     {%endblock%}
