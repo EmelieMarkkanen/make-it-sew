@@ -185,17 +185,7 @@ justify-content: right;
   float: left;
 }
 
-.btn-like {
-  padding: 0;
-  border: none;
-  background: transparent;
-  font-size: 24px;
-  color: #9a7296;
-  cursor: pointer;
-}
-
-.btn-like:active,
-.btn-like:hover {
+.like-form button {
   padding: 0;
   border: none;
   background: transparent;

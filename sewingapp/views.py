@@ -172,6 +172,7 @@ class PatternLike(View):
 
         if pattern.likes.filter(id=request.user.id).exists():
             pattern.likes.remove(request.user)
+            messages.success(request, 'Pattern was removed from your liked patterns.')
         else:
             pattern.likes.add(request.user)
             messages.success(request, 'Pattern was saved to your liked patterns!')
