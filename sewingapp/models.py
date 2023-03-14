@@ -6,14 +6,17 @@ import textwrap
 from cloudinary.models import CloudinaryField
 from multiselectfield import MultiSelectField
 
+#Pattern status 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+#Pattern difficulty choices
 DIFFICULTY = (
     (0, 'Beginner'),
     (1, 'Intermediate'),
     (2, 'Expert'),
 )
 
+#Pattern suggested fabric choices
 SUGGESTED_FABRICS = (
     ('stretch', 'Stretch'),
     ('non_stretch', 'Non-stretch'),
