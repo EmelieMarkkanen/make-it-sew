@@ -2,7 +2,7 @@
 
 Intro text
 
-![Make it Sew main image](/workspace/make-it-sew/assets/images/responsive-img.jpg)
+![Make it Sew main image](assets/images/responsive-img.jpg)
 
 ## Live website
 Link to live website [Make it Sew](https://make-it-sew.herokuapp.com/)
