@@ -19,7 +19,7 @@ class PatternForm(forms.ModelForm):
     Also assigns widget to suggested fabrics for styling purposes.
     """
     suggested_fabrics = forms.MultipleChoiceField(choices=SUGGESTED_FABRICS, widget=forms.CheckboxSelectMultiple(attrs={'class': 'fabric-list'}))
-    
+
     class Meta:
         model = PostPattern
         fields = (

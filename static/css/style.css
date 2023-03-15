@@ -214,6 +214,22 @@ justify-content: right;
   margin-right: 10px;
 }
 
+/*Edit pattern page */
+
+.edit-pattern-form {
+  position: relative;
+}
+
+.edit-pattern-form button {
+  position: absolute;
+  right: 0;
+}
+
+.fabric-list li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 /* Liked patterns page*/
 
 .liked-patterns {
