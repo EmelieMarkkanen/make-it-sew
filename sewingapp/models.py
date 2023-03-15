@@ -6,7 +6,7 @@ import textwrap
 from cloudinary.models import CloudinaryField
 from multiselectfield import MultiSelectField
 
-#Pattern status 
+#Pattern status
 STATUS = ((0, "Draft"), (1, "Published"))
 
 #Pattern difficulty choices
