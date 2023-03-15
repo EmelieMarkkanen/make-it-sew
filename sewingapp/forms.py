@@ -1,4 +1,4 @@
-from .models import PostComment, PostPattern
+from .models import PostComment, PostPattern, SUGGESTED_FABRICS
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 
@@ -15,22 +15,18 @@ class CommentForm(forms.ModelForm):
 
 class PatternForm(forms.ModelForm):
     """
-    PatternForm class. Sets the model and fields for the recipe form.
-    Also assigns summernote widget to description form field.
+    PatternForm class. Sets the model and fields for the pattern form.
+    Also assigns widget to suggested fabrics for styling purposes.
     """
+    suggested_fabrics = forms.MultipleChoiceField(choices=SUGGESTED_FABRICS, widget=forms.CheckboxSelectMultiple(attrs={'class': 'fabric-list'}))
+    
     class Meta:
         model = PostPattern
-
-        #Summernote widget
-        widgets = {
-            'description': SummernoteWidget(),
-        }
-
         fields = (
             'title',
+            'description',
             'file',
             'featured_image',
-            'description',
             'difficulty',
             'suggested_fabrics',
         )

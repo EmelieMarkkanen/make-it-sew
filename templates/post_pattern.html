@@ -13,13 +13,45 @@
         {% endfor %}
     </div>
     {% endif %}
+
     <h1>Post a new pattern</h1>
     {% if user.is_authenticated %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-    <button type="submit" class="btn pink-button pattern-submit-btn">Submit pattern</button>
-</form>
+        <!-- Title field -->
+        <div class="form-group">
+            {{ form.title|as_crispy_field }}
+        </div>
+        <!-- Description field -->
+        <div class="form-group">
+            {{ form.description|as_crispy_field }}
+        </div>
+        <!-- File field -->
+        <div class="form-group">
+            {{ form.file|as_crispy_field }}
+        </div>
+        <!-- Featured image field -->
+        <div class="form-group">
+            {{ form.featured_image|as_crispy_field }}
+        </div>
+        <!-- Difficulty field -->
+        <div class="form-group">
+            {{ form.difficulty|as_crispy_field }}
+        </div>
+        <!-- Suggested fabrics field -->
+        <div class="form-group">
+            <label class="fabrics">Suggested Fabrics</label>
+            <ul id="{{ form.suggested_fabrics.id_for_label }}" class="fabric-list">
+                {% for fabric in form.suggested_fabrics %}
+                <li class="form-check-inline">
+                    {{ fabric.tag }}
+                    <label class="form-check-label" for="{{ fabric.id_for_label }}">{{ fabric.choice_label }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <button type="submit" class="btn pink-button pattern-submit-btn">Submit pattern</button>
+    </form>
+    {% endif %}
 </div>
-{%endif%}
-{%endblock%}
+{% endblock %}

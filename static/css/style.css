@@ -203,11 +203,16 @@ justify-content: right;
 
 .post-pattern-form {
   position: relative;
-  height: 150vh;
 }
+
 .post-pattern-form button {
   position: absolute;
   right: 0;
+}
+
+.fabric-list li {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 /* Liked patterns page*/
