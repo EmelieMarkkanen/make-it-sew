@@ -37,20 +37,20 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'index' %}" style="color:#9a7296; font-weight: bold;">Home</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'all_patterns' %}">All patterns</a></li>
-                    <li><a href="{% url 'my_patterns' %}">My patterns</a></li>
-                    <li><a href="{% url 'post_pattern' %}">Post pattern</a></li>
-                    <li><a href="{% url 'account_logout'%}">Sign out</a></li>
+                    <li><a href="{% url 'all_patterns' %}" style="color:#9a7296; font-weight: bold;">All patterns</a></li>
+                    <li><a href="{% url 'my_patterns' %}" style="color:#9a7296; font-weight: bold;">My patterns</a></li>
+                    <li><a href="{% url 'post_pattern' %}" style="color:#9a7296; font-weight: bold;">Post pattern</a></li>
+                    <li><a href="{% url 'account_logout'%}" style="color:#9a7296; font-weight: bold;">Sign out</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'liked_patterns' %}"><i class="far fa-heart"></i> Liked patterns</a></li>
+                    <li><a href="{% url 'liked_patterns' %}" style="color:#9a7296; font-weight: bold;"><i class="far fa-heart"></i> Liked patterns</a></li>
                 </ul>
                 <ul>
                     {% else %}
-                    <li><a href="{% url 'account_login' %}">Sign in</a></li>
-                    <li><a href="{% url 'account_signup' %}">Register</a></li>
+                    <li><a href="{% url 'account_login' %}" style="color:#9a7296; font-weight: bold;">Sign in</a></li>
+                    <li><a href="{% url 'account_signup' %}" style="color:#9a7296; font-weight: bold;">Register</a></li>
                 </ul>
                 {% endif %}
             </div>

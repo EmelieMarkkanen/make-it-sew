@@ -29,7 +29,6 @@ body {
   color: black;
 }
 
-
 /*Navbar*/
 
 .nav-logo {
@@ -41,6 +40,7 @@ body {
   width: 100%;
   border-radius: 0;
   background-color: rgb(242, 232, 241);
+  color: black;
 }
 
 
