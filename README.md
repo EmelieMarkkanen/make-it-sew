@@ -145,9 +145,20 @@ Make it Sew consists of three models - PostPattern, PostComment and User. User i
 
 ## Testing
 
+
 ### Automated tests
 
+Due to time contstraints and the ElephantSQL database and model having compatibility issues the automated testing was not able to be carried out fully. 
+With help from fellow students and alumni on Slack I finally found a solution by using a temporary Django sqlite3 database for testing, and focused on testing the CommentForm at the moment to include some automated testing in this project. 
+
+In the future I would like to add additional automated testing for the models, views and forms. 
+
+![Automated test image](assets/images/autotest.jpg)
+
+![Temporary database image](assets/images/database.jpg)
+
 ### Manual testing
+
 
 ## Deployment
 

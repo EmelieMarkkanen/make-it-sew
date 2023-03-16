@@ -12,10 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--Font awesome-->
-    <script src="https://kit.fontawesome.com/88aa68d53d.js" crossorigin="anonymous"></script>
     <!--CSS stylesheet-->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block extra_css %}{% endblock %}
@@ -39,13 +35,16 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'index' %}" style="color:#9a7296; font-weight: bold;">Home</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'all_patterns' %}" style="color:#9a7296; font-weight: bold;">All patterns</a></li>
+                    <li><a href="{% url 'all_patterns' %}" style="color:#9a7296; font-weight: bold;">All patterns</a>
+                    </li>
                     <li><a href="{% url 'my_patterns' %}" style="color:#9a7296; font-weight: bold;">My patterns</a></li>
-                    <li><a href="{% url 'post_pattern' %}" style="color:#9a7296; font-weight: bold;">Post pattern</a></li>
+                    <li><a href="{% url 'post_pattern' %}" style="color:#9a7296; font-weight: bold;">Post pattern</a>
+                    </li>
                     <li><a href="{% url 'account_logout'%}" style="color:#9a7296; font-weight: bold;">Sign out</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'liked_patterns' %}" style="color:#9a7296; font-weight: bold;"><i class="far fa-heart"></i> Liked patterns</a></li>
+                    <li><a href="{% url 'liked_patterns' %}" style="color:#9a7296; font-weight: bold;"><i
+                                class="far fa-heart"></i> Liked patterns</a></li>
                 </ul>
                 <ul>
                     {% else %}
@@ -86,6 +85,11 @@
             </div>
         </div>
     </div>
+    <!--Bootstrap scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Font awesome script-->
+    <script src="https://kit.fontawesome.com/88aa68d53d.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

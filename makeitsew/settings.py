@@ -106,9 +106,10 @@ WSGI_APPLICATION = 'makeitsew.wsgi.application'
 DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
  }
-
-#Database used for testing 
+ 
 """
+#Database used for testing 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

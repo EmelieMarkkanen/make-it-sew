@@ -1,6 +1,5 @@
 from django.test import TestCase
 from .forms import CommentForm, PatternForm
-from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class TestCommentForm(TestCase):
