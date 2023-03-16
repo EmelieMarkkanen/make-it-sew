@@ -6,17 +6,17 @@ import textwrap
 from cloudinary.models import CloudinaryField
 from multiselectfield import MultiSelectField
 
-#Pattern status
+# Pattern status
 STATUS = ((0, "Draft"), (1, "Published"))
 
-#Pattern difficulty choices
+# Pattern difficulty choices
 DIFFICULTY = (
     (0, 'Beginner'),
     (1, 'Intermediate'),
     (2, 'Expert'),
 )
 
-#Pattern suggested fabric choices
+# Pattern suggested fabric choices
 SUGGESTED_FABRICS = (
     ('stretch', 'Stretch'),
     ('non_stretch', 'Non-stretch'),
@@ -41,7 +41,9 @@ class PostPattern(models.Model):
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posted_patterns")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="posted_patterns"
+        )
     file = CloudinaryField('pdf')
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
@@ -53,7 +55,8 @@ class PostPattern(models.Model):
     featured_pattern = models.BooleanField(default=False)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=0)
     suggested_fabrics = MultiSelectField(choices=SUGGESTED_FABRICS, null=True)
-    likes = models.ManyToManyField(User, related_name='pattern_like', blank=True)
+    likes = models.ManyToManyField(
+        User, related_name='pattern_like', blank=True)
 
     prepopulated_fields = {'slug': ('title',)}
 
@@ -69,7 +72,8 @@ class PostPattern(models.Model):
     def excerpt_slice(self):
         if not self.excerpt:
             # Get the first 25 characters of the description
-            excerpt_of_description = textwrap.wrap(strip_tags(self.description), width=25)[:2]
+            excerpt_of_description = textwrap.wrap(strip_tags(
+                self.description), width=25)[:2]
             # Join the characters back together to create the excerpt
             self.excerpt = ' '.join(excerpt_of_description) + '...'
 
@@ -84,7 +88,8 @@ class PostComment(models.Model):
     Model for posting comments
     Assigns fields and method for model
     """
-    post = models.ForeignKey(PostPattern, on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey(
+        PostPattern, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

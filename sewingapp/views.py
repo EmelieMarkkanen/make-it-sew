@@ -22,14 +22,16 @@ class PostPattern(generic.ListView):
     PostPattern class list view, for rendering featured patterns to index.html
     """
     model = PostPattern
-    queryset = PostPattern.objects.filter(status=1, featured_pattern=True).order_by("-created_on")
+    queryset = PostPattern.objects.filter(
+                status=1, featured_pattern=True).order_by("-created_on")
     template_name = "index.html"
     context_object_name = 'posted_patterns'
 
 
 class PatternDetail(View):
     """
-    PatternDetail class view, returns full details of a specific pattern to pattern_details.html.
+    PatternDetail class view, returns full details of a
+    specific pattern to pattern_details.html.
     Features get and post method. Post method for posting comments.
     """
 
@@ -61,11 +63,11 @@ class PatternDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
         """
-        Post method for comment form setting pattern object, returning variables.
+        Post method for comment form setting pattern object,
+        returning variables.
         """
         if not request.user.is_authenticated:
             return HttpResponseForbidden()
-        
         queryset = PP.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -84,7 +86,7 @@ class PatternDetail(View):
 
         if comment_form.is_valid():
             comment_form.instance.name = request.user.username
-            comment = comment_form.save(commit=False) 
+            comment = comment_form.save(commit=False)
             comment.post = post
             comment.approved = False
             comment.save()
@@ -107,9 +109,10 @@ class PatternDetail(View):
 
 class PostPatternForm(LoginRequiredMixin, View):
     """
-    PostPatternForm class view. Uses with the PatternForm rendered in the post_pattern template. 
+    PostPatternForm class view.
+    Uses with the PatternForm rendered in the post_pattern template.
     Allow users to post a pattern.
-    Features a get and a post method to render the template and post the form. 
+    Features a get and a post method to render the template and post the form.
     """
     form_class = PatternForm
     template_name = 'post_pattern.html'
@@ -126,7 +129,9 @@ class PostPatternForm(LoginRequiredMixin, View):
             pattern.author = request.user
             pattern.approved = False
             pattern.save()
-            messages.success(request, 'Your pattern is awaiting approval from an administrator.')
+            messages.success(
+                request,
+                'Your pattern is awaiting approval from an administrator.')
             return redirect(reverse_lazy('post_pattern'))
         else:
             return render(request, self.template_name, {'form': form})
@@ -135,8 +140,10 @@ class PostPatternForm(LoginRequiredMixin, View):
 class EditPattern(LoginRequiredMixin, View):
     """
     EditPattern class view. Features a get and a post method.
-    Retrives data from specific pattern object and prepopulates form fields for editing. 
-    Form is rendered to edit_pattern.html template. Resets the pattern status to Draft for admin approval. 
+    Retrives data from specific pattern object and
+    prepopulates form fields for editing.
+    Form is rendered to edit_pattern.html template.
+    Resets the pattern status to Draft for admin approval.
     """
     form_class = PatternForm
     template_name = 'edit_pattern.html'
@@ -144,7 +151,8 @@ class EditPattern(LoginRequiredMixin, View):
     def get(self, request, slug):
         post = get_object_or_404(PP, slug=slug, author=request.user)
         form = self.form_class(instance=post)
-        return render(request, self.template_name, {'form': form, 'post': post})
+        return render(
+             request, self.template_name, {'form': form, 'post': post})
 
     def post(self, request, slug):
         post = get_object_or_404(PP, slug=slug, author=request.user)
@@ -154,16 +162,19 @@ class EditPattern(LoginRequiredMixin, View):
             pattern.author = request.user
             pattern.status = 0
             pattern.save()
-            messages.success(request, 'Your changes have been saved and sent for review. Pattern will be available after approval.')
+            messages.success(
+                 request,
+                 'Your changes have been saved and sent for review. Pattern will be available after approval.')
             return redirect('my_patterns')
         else:
-            return render(request, self.template_name, {'form': form, 'post': post})
+            return render(
+                request, self.template_name, {'form': form, 'post': post})
 
 
 class AllPatterns(LoginRequiredMixin, generic.ListView):
     """
-    AllPatterns class view. 
-    Returns a list of all posted patterns to the all_patterns template. 
+    AllPatterns class view.
+    Returns a list of all posted patterns to the all_patterns template.
     Template is paginated.
     """
     model = PostPattern
@@ -182,14 +193,16 @@ class MyPatterns(LoginRequiredMixin, generic.ListView):
     """
     MyPatterns class view.
     Returns list of pattern objects created by user to my_patterns template.
-    Get method to render template and return queryset objects. Template is paginated.
+    Get method to render template and return queryset objects.
+    Template is paginated.
     """
     model = PostPattern
     template_name = 'my_patterns.html'
     paginate_by = 6
 
     def get(self, request):
-        post_patterns = PP.objects.filter(author=request.user.id).order_by('-created_on').filter(status=1)
+        post_patterns = PP.objects.filter(
+             author=request.user.id).order_by('-created_on').filter(status=1)
         paginator = Paginator(post_patterns, self.paginate_by)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -207,23 +220,28 @@ class PatternLike(LoginRequiredMixin, View):
 
         if pattern.likes.filter(id=request.user.id).exists():
             pattern.likes.remove(request.user)
-            messages.success(request, 'Pattern was removed from your liked patterns.')
+            messages.success(
+                request, 'Pattern was removed from your liked patterns.')
         else:
             pattern.likes.add(request.user)
-            messages.success(request, 'Pattern was saved to your liked patterns!')
+            messages.success(
+                request, 'Pattern was saved to your liked patterns!')
 
-        return HttpResponseRedirect(reverse_lazy('pattern_detail', args=[slug]))
+        return HttpResponseRedirect(
+             reverse_lazy('pattern_detail', args=[slug]))
 
 
 class LikedPatterns(LoginRequiredMixin, generic.ListView):
-    """ 
+    """
     LikedPatterns class view.
-    Returns a list of pattern objects that a user has liked to liked_patterns template.
+    Returns a list of pattern objects that a user
+    has liked to liked_patterns template.
     Get method to render template and return queryset objects.
     """
     paginate_by = 6
-    
+
     def get(self, request, *args, **kwargs):
+
         """
         Get method to render template and return queryset objects.
         """
@@ -232,13 +250,14 @@ class LikedPatterns(LoginRequiredMixin, generic.ListView):
         paginator = Paginator(liked_patterns, self.paginate_by)
         page = request.GET.get('page')
         liked_patterns = paginator.get_page(page)
-        context = {'liked_patterns': liked_patterns, 'page_obj': liked_patterns}
+        context = {'liked_patterns': liked_patterns,
+                   'page_obj': liked_patterns}
 
         return render(request, 'liked_patterns.html', context)
 
 
 class DeletePattern(LoginRequiredMixin, DeleteView):
-    """ 
+    """
     DeletePattern class view.
     Deletes specific pattern object. Returns user to my_patterns template.
     """
@@ -254,10 +273,14 @@ class DeletePattern(LoginRequiredMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
-# 404 handler, sourced from Stack Overflow
-#https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
+"""
+404 handler, sourced from Stack Overflow
+https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
+"""
+
 
 def handler404(request, *args, **argv):
-    response = render_to_response('404.html', {}, context_instance=RequestContext(request))
+    response = render_to_response(
+        '404.html', {}, context_instance=RequestContext(request))
     response.status_code = 404
     return response

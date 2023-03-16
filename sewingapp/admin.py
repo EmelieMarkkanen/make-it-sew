@@ -6,7 +6,7 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(PostPattern)
 class PostAdmin(SummernoteModelAdmin):
     """
-    Class for the Pattern section of the admin area. 
+    Class for the Pattern section of the admin area.
     Organises the display of posts, filtering and searchbar.
     """
 
@@ -20,7 +20,7 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(PostComment)
 class CommentAdmin(admin.ModelAdmin):
     """
-    Class for the Comment section of the admin area. 
+    Class for the Comment section of the admin area.
     Organises the display of comments, filtering and searchbar.
     """
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
