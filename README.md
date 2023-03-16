@@ -168,6 +168,12 @@ In the future I would like to add additional automated testing for the models, v
 
 Make it Sew have been tested in Chrome, Edge and Firefox with no errors found in functionality. 
 
+### W3C HTML and CSS
+
+Make it Sew was passed through W3C HTML Markup validation and showed a few errors of missing endtags and issues with button and a tag relations that were fixed.
+
+Make it Sew was passed through W3C CSS validation with no errors found. 
+
 ### Lighthouse
 
 Make it Sew have been tested using Chrome developer Lighthouse tester. During testing it was discovered that the website have some issues with performance, which seems to mostly be due to Bootstrap CSS not being utilized as effectively as it could. With more time I would have liked to optimze this using Devtools Coverage Tool and defer non-critical CSS. 

@@ -22,11 +22,15 @@ body {
 
 .pink-button {
   background-color: #9A7296;
-  color: #F5E3F2;
 }
 
-.pink-button:hover {
+.pink-button a:hover {
   color: black;
+}
+
+.pink-button a {
+  color: #F5E3F2;
+  text-decoration: none;
 }
 
 /*Navbar*/
