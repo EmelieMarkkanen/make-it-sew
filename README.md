@@ -38,6 +38,9 @@ Link to live website [Make it Sew](https://make-it-sew.herokuapp.com/)
 - [Testing](#testing)
     - [Automated tests](#automated-tests)
     - [Manual testing](#manual-testing)
+        - [Browser test](#browser-test)
+        - [Lighthouse](#lighthouse)
+        - [PEP8 Python](#pep8-python)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -142,6 +145,8 @@ Make it Sew consists of three models - PostPattern, PostComment and User. User i
 - Cloudinary
 - Summernote
 - Gunicorn
+- CI Python linter
+- W3 HTML and CSS validators
 
 ## Testing
 
@@ -158,6 +163,52 @@ In the future I would like to add additional automated testing for the models, v
 ![Temporary database image](assets/images/database.jpg)
 
 ### Manual testing
+
+### Browser test 
+
+Make it Sew have been tested in Chrome, Edge and Firefox with no errors found in functionality. 
+
+### Lighthouse
+
+Make it Sew have been tested using Chrome developer Lighthouse tester. During testing it was discovered that the website have some issues with performance, which seems to mostly be due to Bootstrap CSS not being utilized as effectively as it could. With more time I would have liked to optimze this using Devtools Coverage Tool and defer non-critical CSS. 
+
+![Lighthouse test image](assets/images/lighthouse1.jpg)
+
+![Lighthouse test image](assets/images/lighthouse2.jpg)
+
+### PEP8 Python 
+
+I used the [Code Institute Python linter](https://pep8ci.herokuapp.com/#) to test all Make it Sew python code. Some errors of too long lines and trailing whitespaces were found and corrected. 
+
+#### Admin.py
+
+![Admin.py test image](assets/images/admin-py-test.jpg)
+
+
+#### Apps.py
+
+![Apps.py test image](assets/images/admin-py-test.jpg)
+
+
+#### Forms.py
+
+![Forms.py test image](assets/images/forms-py-test.jpg)
+
+#### Models.py
+
+![Models.py test image](assets/images/models-py-test.jpg)
+
+#### Views.py
+
+![Views.py test image](assets/images/views-py-test.jpg)
+
+#### Urls.py
+
+![Urls.py test image](assets/images/urls-py-test.jpg)
+
+#### Test_forms.py
+
+![Test_form.py test image](assets/images/test-forms-py-test.jpg)
 
 
 ## Deployment
