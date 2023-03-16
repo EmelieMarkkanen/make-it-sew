@@ -18,8 +18,30 @@ Link to live website [Make it Sew](https://make-it-sew.herokuapp.com/)
 
 - [Make it Sew](#make-it-sew)
 - [Live website](#live-website)
-- [Project purpose](#project-purpose)
-- [User stories](#user-stories)
+- [Project](#project)
+    - [Objective](#objective)
+    - [Site user goal](#site-user-goal)
+    - [Site owner goal](#site-owner-goal)
+- [Project management](#project-management)
+    - [Agile](#agile)
+    - [User stories](#user-stories)
+- [Typography and color scheme](#typography-and-color-scheme)
+    - [Typography](#typography)
+    - [Color scheme](#color-scheme)
+    - [Imagery](#imagery)
+- [Features](#features)
+    - [Existing features](#existing-features)
+    - [Future features](#future-features)
+- [Wireframes](#wireframes)
+- [Database schema](#database-schema)
+- [Technology](#technology)
+- [Testing](#testing)
+    - [Automated tests](#automated-tests)
+    - [Manual testing](#manual-testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+
+
 
 ## Project
 
@@ -39,7 +61,7 @@ Users of Make it Sew could have several goals, such as wanting to take part of a
 
 As a site owner the goal is to provide a stable and enjoyable user experience, that encourages user interaction. The website should be accessible, appealing and contain content that is well structured, intuitive and of high standard. Site administrator should make sure the content is monitored to meet community standard. 
 
-## User stories
+## Project management
 
 ### Agile 
 
@@ -60,7 +82,7 @@ The color scheme consists of mainly black and white, with pink and purple accent
 
 ### Imagery
 
-Images for the index page jumbotron and sewing patterns are sourced from [Shutterstock](https://www.shutterstock.com/). 
+Images for the index page jumbotron, navbar logo and sewing patterns are sourced from [Shutterstock](https://www.shutterstock.com/). 
 
 ## Features
 
@@ -72,14 +94,60 @@ Download PDF
 Like button on cards
 Search bar
 User edit/delete comments
+About page/contact page
 
 ## Wireframes
 
+Wireframes created using [Lucidshart](https://www.lucidchart.com/)
+
+[Index page](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Index%20page.pdf)
+
+[All patterns, liked patterns, my patterns](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/All%20patterns.pdf)
+
+[Sign in, sign out, register](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/signin.pdf)
+
+[Post/edit pattern form](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Form.pdf)
+
+
 ## Database schema
+
+Make it Sew consists of three models - PostPattern, PostComment and User. User is a Django built-in model. The database schema was used to plan the model and fields. 
+
+[Database schema](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Database.pdf)
 
 ## Technology
 
+### Languages
+
+- HTML5
+- CSS3
+- Python
+- Git 
+
+### Frameworks
+
+- Django
+- Bootstrap
+
+### Other software and libraries used
+
+- Heroku
+- Github
+- ElephantSQL
+- Google Chrome dev tools
+- Lighthouse
+- Am I Responsive
+- Crispy forms
+- Allauth
+- Cloudinary
+- Summernote
+- Gunicorn
+
 ## Testing
+
+### Automated tests
+
+### Manual testing
 
 ## Deployment
 
