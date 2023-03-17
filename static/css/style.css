@@ -161,6 +161,7 @@ justify-content: right;
 .comment-section {
   height: 45vh;
   font-size:medium;
+  color: transparent;
 }
 
 .author-name, .comment-text {
