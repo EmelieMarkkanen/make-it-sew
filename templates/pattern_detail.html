@@ -96,12 +96,12 @@ pages-background
                 <!-- View pattern button is shown for logged in user who is not the author of a pattern,
                 open a pdf in new tab-->
                 {%elif user.is_authenticated %}
-                <a href="https://drive.google.com/file/d/1WUAOOtcwtlDN_hCoVO6M-aCWtguFdhoL/view?usp=share_link"
-                    target="_blank"><button class="btn btn-rounded pink-button download-button">View
-                        pattern</button></a>
+                <button class="btn btn-rounded pink-button"><a href="https://drive.google.com/file/d/1WUAOOtcwtlDN_hCoVO6M-aCWtguFdhoL/view?usp=share_link"
+                    target="_blank">View
+                        pattern</a></button>
                 {% else %}
                 <!-- sign in button is shown if user is not logged in, redirecting to the login page -->
-                <button class="btn btn-rounded pink-button signin-button"><a href="{%url 'account_login' %}">Sign in to
+                <button class="btn btn-rounded pink-button"><a href="{%url 'account_login' %}">Sign in to
                         view pattern</a></button>
                 {%endif%}
             </div>
@@ -140,15 +140,17 @@ pages-background
                         {{ comment_form | crispy }}
                         {% csrf_token %}
                         <br>
-                        <div class="mt-2 text-right"><button class="btn btn-sm shadow-none pink-button"
-                                type="submit">Post comment</button></div>
+                        <div class="mt-2 text-right">
+                            <button class="btn btn-rounded pink-button" type="submit">Post comment</button>
+                        </div>
                         {% else %}
                         <!-- Sign in button is shown if user is not logged in, redirecting to sign in template -->
-                        <div class="mt-2 text-right"><button
-                                    class="btn btn-sm shadow-none pink-button" type="button"><a href="{% url 'account_login' %}">Sign in to post
-                                    a comment</a></button></div>
+                        <div class="mt-2 text-right">
+                            <button class="btn btn-rounded pink-button" type="button"><a href="{% url 'account_login' %}">Sign in to post a comment</a></button>
+                        </div>
                         {% endif %}
                         {% endif %}
+                        </form>
                 </div>
             </div>
         </div>

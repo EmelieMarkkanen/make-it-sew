@@ -51,7 +51,6 @@ Link to live website [Make it Sew](https://make-it-sew.herokuapp.com/)
 - [Credits](#credits)
 
 
-
 # Project
 
 ## Objective
@@ -133,26 +132,44 @@ Images for the index page jumbotron, navbar logo and sewing patterns are sourced
 ### Home page and introduction
 The homepage is the first page of the site the user is met with when navigating to the Make it Sew url. It is designed to give the user a feel for and quick summary of the sites objective. 
 
+![Home page](assets/images/home-page.jpg)
+
 ### Navigation
 The site feature a navbar that is present on all pages of the site. The navbar links change depending on wether the user is logged in or not, giving the user access to different features of the site. If the user is not logged in, the navbar show links to the sign in or sign up pages. If a user is logged in the navbar shows links to the all patterns, my patterns, liked patterns, post pattern and sign out page. The navbar also features a logo image of a sewing machine. 
 Viewing the site on a smaller screen make the navbar collapse for a mobile menu. 
 
+![Navbar](assets/images/navbar1.jpg)
+![Navbar](assets/images/navbar2.jpg)
+
 ### Footer
 The site features a footer that is present on all pages of the site, with links to relevant social media sites. The footer is fully responsive to different screen sizes. 
+
+![Footer](assets/images/footer.jpg)
 
 ### Featured patterns
 The homepage features three cards with featured patterns, set by the site administrator, to give the user a preview of what the site offer. The cards display an image, a link to a detailed page about the pattern and the amount of likes the specific pattern have got. 
 
+![Featured patterns](assets/images/featured-patterns.jpg)
+
 ### Login to view all patterns button
 If a user is not logged in, a button reffering the user to the login page is visible under the featured patterns cards. 
+
+![Featured patterns](assets/images/featured-patterns-loginbutton.jpg)
 
 ## Detailed pattern page
 
 ### Full details
 The page features a title, authors username, full description of the pattern, with a pattern difficulty and suggested fabrics section. For the author of the post an edit and delete button is available. For other users the page features a button, "View pattern". The idea is to add a future functionality where users can view and download a PDF of a sewing pattern. 
 
+![Detailed pattern page](assets/images/user-detailed-view.jpg)
+![Detailed pattern page](assets/images/user-detailed.jpg)
+
 ### Like button
 The page features a heartshaped likebutton and numberdisplay of how many users have liked the post. A logged in user can click the button, which increase the amount of likes, and change the color of the button. A user who is not logged in will only see a heartshaped icon with a display of how many likes. Clicking the likebutton will also notify the user that the pattern have been saved to the Liked patterns page. Clicking again will notify the user that the pattern have been removed from the Liked patterns page. 
+
+![Like button liked](assets/images/like-message.jpg)
+
+![Like button unlike](assets/images/like-message-delete.jpg)
 
 ### Comment section form
 
@@ -161,14 +178,20 @@ Users who are not logged in can read the comments but the post comment button wi
 
 The comment form can not be posted unless it is valid, which the user is notified of if they try to send an empty form. 
 
+![Comments](assets/images/comment-section.jpg)
+
 ### Delete pattern 
 A logged in user who is also the author of a pattern post will have a delete pattern button available. This button uses defensive programming, opening up a notification asking if the user really want to delete the post. Clicking delete will delete the pattern from the database, while clicking cancel will close the notification. 
+
+![Delete modal](assets/images/delete-modal.jpg)
 
 ### Edit pattern
 A logged in user who is also the author of a pattern post will have an edit pattern button available. This will refer the user to an edit pattern form, prepopulated with the post details. 
 
+
 ### Notifications
 The user is notified with an automatic message when clicking the like button, posting a comment or trying to post an invalid comment form. 
+
 
 ## Post pattern page
 
@@ -176,8 +199,12 @@ The user is notified with an automatic message when clicking the like button, po
 The post pattern page features a form to enable users to submit a pattern to Make it Sew. This page is only available to logged in users. 
 The form features a title, description, file and image field. The user can also choose a pattern difficulty option and a multiple options of suggested fabrics. When the user click the submit button they are notified that the pattern will be available after approval from site administrator. If a user try to post an invalid form, they are notified how to correct their post and it is not submitted. 
 
+![Post pattern](assets/images/post-pattern.jpg)
+
 ### Notifications
 The user is notified with an automatic message when clicking the submit button or if they try posting an invalid form. 
+
+![Post message](assets/images/post-message.jpg)
 
 ## Edit pattern page
 
@@ -185,8 +212,12 @@ The user is notified with an automatic message when clicking the submit button o
 The edit pattern page features a prepopulated form to enable users to edit a pattern posted to Make it Sew. This page is only available to logged in users who is the author of the specific pattern post.
 This form features the same fields as the post pattern form. When the user click the submit button they are notified that the edited pattern will be available after approval from site administrator. If a user try to post an invalid form, they are notified how to correct their post and it is not submitted. 
 
+![Edit pattern](assets/images/edit-pattern.jpg)
+
 ### Notifications
 The user is notified with an automatic message when clicking the submit button or if they try posting an invalid form. 
+
+![Edit message](assets/images/edit-message.jpg)
 
 ## My patterns page
 
@@ -195,11 +226,16 @@ The my patterns page features a list of all the patterns posted by the logged in
 If a user have not posted any patterns they are shown a message and a button referring the user to the post pattern page. 
 The page paginates by 6 items, showing a next/previous link if the user have posted more than 6 patterns. 
 
+![My patterns](assets/images/my-patterns.jpg)
+![No patterns posted](assets/images/no-my-patterns.jpg)
+
 ## All patterns page 
 
 ### All posted patterns list
 The all patterns page features a list of all the patterns posted to Make it Sew, that have been approved by a site administrator. The page is only available to logged in users. 
 The page paginates by 9 items, showing a next/previous link if there are more than 9 posts made on the website. 
+
+![All patterns](assets/images/all-patterns.jpg)
 
 ## Liked patterns page 
 
@@ -207,6 +243,8 @@ The page paginates by 9 items, showing a next/previous link if there are more th
 The liked patterns page features a list of all the patterns liked by the logged in user. The page is only available to logged in users. 
 If a user have not liked any patterns they are shown a message and a button referring the user to the all patterns page. 
 The page paginates by 6 items, showing a next/previous link if the user have liked more than 6 patterns. 
+
+![Liked patterns](assets/images/liked-patterns.jpg)
 
 ## Authorization
 
@@ -218,15 +256,23 @@ A user can navigate to the register page via the navbar Register link. The page 
 If the user tries to post an invalid form they are notified, and the form is not submitted.
 Submitting a valid form redirects the user to the home page as a logged in user.
 
-### Login 
+![Register](assets/images/sign-up.jpg)
+
+### Sign in 
 A user can navigate to the login page via the navbar Sign in link. The page features a form for username and password, and a link to the register new user page if the user is not already registered with Make it Sew. 
 Once logged in the user is redirected to the home page as a logged in user. 
 
-### Logout
+![Sign in](assets/images/sign-in.jpg)
+
+### Sign out
 A user can navigate to the logout page via the navbar Sign out link. The page promts the user with a message asking if the user want to log out. If the user clicks the sign out button they are redirected to the home page as a logged out user. 
+
+![Sign out](assets/images/sign-out.jpg)
 
 ## 404 page
 If a user attempts to access a URL on a website that doesn't exist, the 404 page will be triggered. This error page is a safety net for instances where links are faulty, or URLs have expired. While this page is not frequently seen, it is essential to have it available for those who may encounter errors. The main goal of the 404 page is to alert the user that an error has occurred, and the page they attempted to reach cannot be found. To help users get back on track, the Make it Sew 404 page provides a button link to the homepage, allowing for a simple return to the starting point.
+
+![404 page](assets/images/404.jpg)
 
 ## Future features 
 

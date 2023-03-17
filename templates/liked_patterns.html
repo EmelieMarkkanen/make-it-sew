@@ -7,10 +7,26 @@
 pages-background
 {% endif %}
 {% endblock %}
-
 <!-- Display liked patterns -->
 <div class="container ">
     <div class="row liked-patterns">
+        <h1 class="text-center">Favourite patterns</h1>
+    <!-- Displayed if user have not liked any patterns -->
+    {% if liked_patterns|length == 0 %}
+    <div class="container-fluid logout-page text-center">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h1>You haven't liked and saved any patterns yet!</h1>
+                    <br>
+                    <div>
+                        <a href="{%url 'all_patterns' %}"><button class="btn btn-rounded pink-button">Check out all patterns!</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endif%}
         {% for post in liked_patterns %}
         <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="panel panel-background">
@@ -46,22 +62,6 @@ pages-background
         </div>
         {%endfor%}
     </div><br>
-    <!-- Displayed if user have not liked any patterns -->
-    {% if liked_patterns|length == 0 %}
-    <div class="container-fluid logout-page text-center">
-        <div class="row">
-            <div class="card">
-                <div class="card-body">
-                    <h1>You haven't liked and saved any patterns yet!</h1>
-                    <br>
-                    <div>
-                        <a href="{%url 'all_patterns' %}"><button class="btn btn-rounded pink-button">Check out all patterns!</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {%endif%}
     <!-- Pagination -->
     {% if liked_patterns.has_other_pages %}
     <div class="pagination">

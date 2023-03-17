@@ -22,7 +22,11 @@ body {
 
 .pink-button {
   background-color: #9A7296;
-  color: #F5E3F2;
+  color:#F5E3F2;
+}
+
+.pink-button:hover {
+  color: black;
 }
 
 .pink-button a:hover {
@@ -159,10 +163,6 @@ justify-content: right;
   font-size:medium;
 }
 
-.comment-form {
-  color: transparent;
-}
-
 .author-name, .comment-text {
   font-weight: bold;
 }
@@ -174,7 +174,6 @@ justify-content: right;
 
 .edit-button a {
   display: inline-block;
-  color: #9a7296;
   color: #F5E3F2;
 }
 
