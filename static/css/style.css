@@ -22,6 +22,7 @@ body {
 
 .pink-button {
   background-color: #9A7296;
+  color: #F5E3F2;
 }
 
 .pink-button a:hover {
@@ -171,8 +172,10 @@ justify-content: right;
   right: 0;
 }
 
-.edit-button {
+.edit-button a {
   display: inline-block;
+  color: #9a7296;
+  color: #F5E3F2;
 }
 
 .delete-button {
@@ -211,22 +214,7 @@ justify-content: right;
 .post-pattern-form button {
   position: absolute;
   right: 0;
-}
-
-.fabric-list li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-/*Edit pattern page */
-
-.edit-pattern-form {
-  position: relative;
-}
-
-.edit-pattern-form button {
-  position: absolute;
-  right: 0;
+  color: #F5E3F2;
 }
 
 .fabric-list li {

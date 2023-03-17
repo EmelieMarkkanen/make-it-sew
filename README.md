@@ -44,6 +44,10 @@ Link to live website [Make it Sew](https://make-it-sew.herokuapp.com/)
         - [Lighthouse](#lighthouse)
         - [PEP8 Python](#pep8-python)
 - [Deployment](#deployment)
+    - [Github & Gitpod](#github--gitpod)
+    - [Create a Django project and app](#create-a-django-project-and-app)
+    - [ElephantSQL](#elephantsql)
+    - [Heroku](#heroku)
 - [Credits](#credits)
 
 
@@ -347,7 +351,62 @@ I used the [Code Institute Python linter](https://pep8ci.herokuapp.com/#) to tes
 ![Test_form.py test image](assets/images/test-forms-py-test.jpg)
 
 
+## Bugs
+
+### Fixed
+- [When editing a pattern changes are rendered on the page without admin approval](https://github.com/EmelieMarkkanen/make-it-sew/issues/32)
+- [Tests compatibility issues with database](https://github.com/EmelieMarkkanen/make-it-sew/issues/43)
+
+### Not fixed
+- [PDF is not displayed in a new tab, error message says PDF can't be read](https://github.com/EmelieMarkkanen/make-it-sew/issues/40)
+- [Line up content in register form](https://github.com/EmelieMarkkanen/make-it-sew/issues/42)
+
 # Deployment
+
+The master branch of this repository has been used for the deployed version of this application.
+
+## Github & Gitpod
+
+I created a repository in Github, named it ´make-it-sew´, and used the template Code-Institute-Org/gitpod-full-template
+
+- Once the repository is created, click the green button to the right (Gitpod) to open a new Gitpod workspace. 
+- To open and work on the project it is best to open the workspace from Gitpod workspaces (rather than Github), this will open your previous workspace rather than creating a new one. You should pin the workspace. 
+- Committing changes should be done often and should have clear messages. Use the following commands to make your commits:
+    - `git add .`: adds all modified files to a staging area
+    - `git commit -m "A message explaining your commit"`: commits all changes to a local repository.
+    - `git push`: pushes all your committed changes to your Github repository.
+
+## Create a Django project and app
+
+- Install Django and supporting libraries. I've used Gunicorn, Cloudinary and psycopg2 to start. 
+- In the terminal of the Gitpod workspace type django-admin startproject 'project_name' - project_name is desired project name
+- In the terminal of the Gitpod workspace type python3 manage.py startapp 'app_name' - app_name is desired app name 
+- Create a Requirements.txt file (type pip3 freeze --local > requirements.txt), a env.py file and Procfile on the top level of the project directory. 
+- In settings.py add the installed apps names into the installed apps array variable and save the file.
+- Move the SECRET KEY to the env.py file, and add the DATABASE URL and CLOUDINARY URL as well. 
+- Migrate changes by using the command python3 manage.py migrate.
+
+## ElephantSQL
+
+- Log into ElephantSQL or create new account.
+- Click to create new instance and set up the plan by giving it a name, I selected the tiny turtle plan. 
+- Select a region (data center) closest to your location. 
+- Click review, check that all the details are correct and then click create instance. 
+- Return to the ElephantSQL dashboard and click on the database instance name for the project.
+- Copy the ElephantSQL database URL that begin with 'postgres://' using the copy icon. 
+
+## Heroku
+
+I followed the steps in the Code Institute course material and [Django Blog cheatsheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
+
+- Log into Heroku or create an account.
+- Click ´New´ create new heroku app. Give the app an app name and select your region, I chose Europe. 
+- Open the app settings tab and click ´Reveal config vars´
+- Add a config var called ´DATABASE_URL´ and paste in the ElephantSQL database URL
+- Add the config var ´SECRET KEY´ with the secret key from the Django app settings.py file. It is recommended to create a new secret key for safety purposes. 
+- Add the config vars ´CLOUDINARY_URL´, ´DATABASE_URL´, ´PORT´ and ´DISABLE_COLLECTSTATIC´. 
+- Under the project deploy tab, select GitHub for the deployment method. Search for the repository name and click connect. Scroll down to the manual deployment section and click deploy branch. Make sure you have the main branch selected. 
+
 
 # Credits
 

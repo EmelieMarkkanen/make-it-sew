@@ -69,8 +69,8 @@ pages-background
             <div class="text-right">
                 <!-- Edit and delete button show if user is logged in AND author of pattern -->
                 {% if user == post.author %}
-                <span><a href="{% url 'edit_pattern' slug=post.slug %}"><button
-                            class="btn btn-rounded pink-button edit-button">Edit</button></a></span>
+                <span><button
+                            class="btn btn-rounded edit-button pink-button"><a href="{% url 'edit_pattern' slug=post.slug %}">Edit</a></button></span>
                 <span><button class="btn btn-rounded delete-button" data-toggle="modal"
                         data-target="#deleteModal">Delete</button></span>
                 <!--Modal opening if user click on the delete button-->

@@ -5,7 +5,7 @@
 
 {% block content %}
 <!-- Edit pattern form -->
-<div class="container edit-pattern-form">
+<div class="container post-pattern-form">
     <h1>Edit pattern</h1>
     {% if user.is_authenticated %}
     <form method="post" enctype="multipart/form-data" action="{% url 'edit_pattern' slug=post.slug %}">
@@ -42,7 +42,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <button type="submit" class="btn pink-button pattern-submit-btn">Submit pattern</button>
+        <button type="submit" class="btn pink-button">Submit pattern</button>
     </form>
     {% endif %}
 </div>
