@@ -276,6 +276,12 @@ If a user attempts to access a URL on a website that doesn't exist, the 404 page
 
 ![404 page](assets/images/404.jpg)
 
+## 500 page
+A 500 error message means there was a server-side error preventing the page from loading. When a user encounter a 500 error message page, it means that there was a server-side error that prevented the website or application from loading the requested page. This error message is typically accompanied by a generic message, such as "Internal Server Error" or "500 - Internal Server Error." The Make it Sew 500 page informs the user something went wrong and some possible solutions to the issue, and provides a button redirecting them back to the home page. 
+
+![500 page]()
+
+
 ## Future features 
 
 Serveral other features could be added to Make it Sew to create further value for users. These are some of the features I would like to add in the future. 

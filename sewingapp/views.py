@@ -265,13 +265,18 @@ class DeletePattern(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('my_patterns')
 
     def get_object(self):
-        slug = self.kwargs.get('slug')
-        return get_object_or_404(PP, slug=slug, author=request.user)
+        return get_object_or_404(PP, slug=self.kwargs.get('slug'), author=self.request.user)
 
     def delete(self, request, *args, **kwargs):
         messages.success(request, 'Pattern was successfully deleted')
         return super().delete(request, *args, **kwargs)
 
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        self.object.delete()
+
+        return redirect(success_url)
 
 """
 Error message handlers
