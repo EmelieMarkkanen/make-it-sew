@@ -161,6 +161,9 @@ justify-content: right;
 .comment-section {
   height: 45vh;
   font-size:medium;
+}
+
+.comment-form {
   color: transparent;
 }
 

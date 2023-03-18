@@ -89,7 +89,7 @@ User stories were sorted into iterations, Milestones, that were used to structur
 
 ## Wireframes
 
-Wireframes created using [Lucidshart](https://www.lucidchart.com/) to plan the general flow and display of Make it Sew. Some differences may be found between the original wireframes and the finished site due to design choices made during the project process. 
+Wireframes created using [Lucidchart](https://www.lucidchart.com/) to plan the general flow and display of Make it Sew. Some differences may be found between the original wireframes and the finished site due to design choices made during the project process. 
 
 [Index page](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Index%20page.pdf)
 
@@ -104,6 +104,8 @@ Wireframes created using [Lucidshart](https://www.lucidchart.com/) to plan the g
 Make it Sew consists of three models - PostPattern, PostComment and User. User is a Django built-in model. The database schema was used to plan the model and fields. 
 
 [Database schema](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Database.pdf)
+
+[Database ERD]()
 
 
 # Typography and color scheme
@@ -344,7 +346,9 @@ In the future I would like to add additional automated testing for the models, v
 
 # Manual testing
 
-The Make it Sew website have been continualy tested manually troughout development and followed up with testing through Lighthouse, W3C and PEP8. 
+The Make it Sew website have been continualy tested manually troughout development and after deployment. A full summary of manual testing can be found [here](Testing.md).
+
+# Code validation
 
 ## Browser test 
 
