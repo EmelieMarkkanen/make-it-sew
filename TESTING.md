@@ -11,7 +11,18 @@
 # Home page
 
 ## Navbar and footer
+```
+The website feature a [navbar and footer](https://github.com/EmelieMarkkanen/make-it-sew/issues/2) that are present on all pages throughout. 
+The links in the navbar change depending on whether a user is logged in or not, showing different features. 
+The links are informative and lead to the correct respective pages.
+The navbar and footer are responsive to different screen sizes. 
+The footer links open in new tabs.
+```
+
 ## Introduction
+The website features an informative text on the homepage, explaining the purpose and idea of the site.
+
+
 ## Featured patterns
 ## Login in to view all patterns button
 

@@ -358,7 +358,7 @@ In the future I would like to add additional automated testing for the models, v
 
 # Manual testing
 
-The Make it Sew website have been continualy tested manually troughout development and after deployment. A full summary of manual testing can be found [here](Testing.md).
+The Make it Sew website have been continualy tested manually troughout development and after deployment. A full summary of manual testing can be found [here](TESTING.md).
 
 # Code validation
 
