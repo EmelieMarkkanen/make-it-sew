@@ -2,6 +2,12 @@
 
 [Back to README](README.md)
 
+# Django administration
+
+## Pattern admin
+## Comment admin
+## User admin
+
 # Home page
 
 ## Navbar and footer

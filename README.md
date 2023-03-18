@@ -129,6 +129,12 @@ Images for the index page jumbotron, navbar logo and sewing patterns are sourced
 
 ## Existing features
 
+## Django administration
+
+Django comes with a built in administration portal that an assigned superuser can sign in to and use to administer users, posts and comments.
+
+![Django administration](assets/images/admin.jpg)
+
 ## Home page
 
 ### Home page and introduction
@@ -412,6 +418,7 @@ I used the [Code Institute Python linter](https://pep8ci.herokuapp.com/#) to tes
 ### Fixed
 - [When editing a pattern changes are rendered on the page without admin approval](https://github.com/EmelieMarkkanen/make-it-sew/issues/32)
 - [Tests compatibility issues with database](https://github.com/EmelieMarkkanen/make-it-sew/issues/43)
+- [Delete view not redirecting user to My patterns page](https://github.com/EmelieMarkkanen/make-it-sew/issues/45)
 
 ### Not fixed
 - [PDF is not displayed in a new tab, error message says PDF can't be read](https://github.com/EmelieMarkkanen/make-it-sew/issues/40)
@@ -431,6 +438,7 @@ I created a repository in Github, named it ´make-it-sew´, and used the templat
     - `git add .`: adds all modified files to a staging area
     - `git commit -m "A message explaining your commit"`: commits all changes to a local repository.
     - `git push`: pushes all your committed changes to your Github repository.
+- While working on the project I used the Gitpod development server to view the website in action. To start the development server run the following command: `Python3 manage.py runserver`. 
 
 ## Create a Django project and app
 
@@ -466,7 +474,20 @@ I followed the steps in the Code Institute course material and [Django Blog chea
 
 # Credits
 
-404 and 500 handlers sourced from Stack Overflow
-https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
+- [Heroku](https://heroku.com/)
+- [ElephantSQL](https://www.elephantsql.com/)
+- [Django Project](https://www.djangoproject.com/)
+- [Django packages](https://djangopackages.org/)
+- [Django snippets](https://djangosnippets.org/)
+- [404 and 500 handlers sourced from Stack Overflow](https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page)
+- [Shutterstock](https://www.shutterstock.com/sv)
+- [Font awesome](https://fontawesome.com/)
+- [Get bootstrap](https://getbootstrap.com/)
+- [W3Schools](https://www.w3schools.com/bootstrap4/default.asp)
+- [Cloudinary](https://cloudinary.com/)
+- [Lucidchart](https://www.lucidchart.com/)
+- [MyColor](https://mycolor.space/)
+
+
 
 
