@@ -90,8 +90,6 @@ class PatternDetail(View):
             comment.post = post
             comment.approved = False
             comment.save()
-        else:
-            comment_form = CommentForm()
 
         return render(
             request,
@@ -277,6 +275,7 @@ class DeletePattern(LoginRequiredMixin, DeleteView):
         self.object.delete()
 
         return redirect(success_url)
+
 
 """
 Error message handlers
