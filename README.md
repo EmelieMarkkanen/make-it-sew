@@ -81,7 +81,7 @@ Make it Sew consists of a number of user stories, broken into acceptance criteri
 
 All user stories for Make it Sew can be found in the [Make it Sew github repository issues section](https://github.com/EmelieMarkkanen/make-it-sew/issues) or [Make it Sew project board](https://github.com/users/EmelieMarkkanen/projects/4).
 
-User stories were sorted into iterations, Milestones, that were used to structure and allocate the work as the project went on.
+User stories were sorted into iterations, Milestones, that were used to structure and allocate the work as the project went on. Issues that wont be finished for this projects deadline is added to the [Make it Sew backlog milestone](https://github.com/EmelieMarkkanen/make-it-sew/milestone/5). 
 
 ![User story example](assets/images/user-story.jpg)
 
