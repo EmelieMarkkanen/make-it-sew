@@ -77,7 +77,7 @@ The Make it Sew website was developed using an agile methodology to ensure a str
 
 ![Project board image](assets/images/project-board.jpg)
 
-Make it Sew consists of 40 user stories, broken into acceptance criteria and tasks. Lables were used to mark issues with priorities, like "must have", "nice to have" or "future feature" to organize the work throughout the project. As the tasks in each user story was finished and ticked off, the issue was moved to the done section of the project board and closed. 
+Make it Sew consists of a number of user stories, broken into acceptance criteria and tasks. Lables were used to mark issues with priorities, like "must have", "nice to have" or "future feature" to organize the work throughout the project. As the tasks in each user story was finished and ticked off, the issue was moved to the done section of the project board and closed. 
 
 All user stories for Make it Sew can be found in the [Make it Sew github repository issues section](https://github.com/EmelieMarkkanen/make-it-sew/issues) or [Make it Sew project board](https://github.com/users/EmelieMarkkanen/projects/4).
 
@@ -292,6 +292,9 @@ A 500 error message means there was a server-side error preventing the page from
 
 Serveral other features could be added to Make it Sew to create further value for users. These are some of the features I would like to add in the future. 
 
+### Preview of posted pattern
+When posting a pattern a user would be able to view a preview of the pattern, before it's been approved by a site admin. This would only be available to that specific user. 
+
 ### Download PDF button
 A way for users to download the pdf of a sewing pattern that have been uploaded. This has been added to the Make it Sew backlog milestone, because Cloudinary that is used for storage solution don't support PDF downloads for safety reasons. Comment on this can be read in the [user story issue](https://github.com/EmelieMarkkanen/make-it-sew/issues/40).
 
@@ -487,6 +490,13 @@ I followed the steps in the Code Institute course material and [Django Blog chea
 - [Cloudinary](https://cloudinary.com/)
 - [Lucidchart](https://www.lucidchart.com/)
 - [MyColor](https://mycolor.space/)
+
+# Acknowledgements
+
+- Code institute for excellent teaching
+- My mentor Rohit for valuable input
+- Friends and family for manual testing and input
+- Caliban cat for emotional support and cuddle breaks
 
 
 

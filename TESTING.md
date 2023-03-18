@@ -2,12 +2,6 @@
 
 [Back to README](README.md)
 
-# Django administration
-
-## Pattern admin
-## Comment admin
-## User admin
-
 # Home page
 
 ## [Introduction](https://github.com/EmelieMarkkanen/make-it-sew/issues/1)
@@ -65,7 +59,7 @@
 - The like button is only useable by signed in users.  
 - A signed out user will only see a heartshaped icon and number of likes, that is not clickable. 
 
-## Notifications
+### Notifications
 - If a user tries to post an invalid comment form they are notified to fill out required fields. 
 - When clicking the like button the user is notified that the pattern have been saved or removed from the Liked pattern page. 
 
@@ -104,7 +98,7 @@
 - The form lets the user add a title, description, pdf, image, set difficulty and suggestion of fabrics. 
 - When a valid form is submitted the user is redirected to the Post pattern page again.
 
-## Notifications
+### Notifications
 - If a user tries to post an invalid pattern form they are notified to fill out required fields.
 - When submitting a valid pattern form the user is notified that the pattern will be available after approval from a site administrator. 
 
@@ -116,17 +110,68 @@
 - The form lets the user edit the title, description, pdf, image, difficulty setting and fabric suggestions. 
 - When a valid form is submitted the user is redirected to the My patterns page. 
 
-## Notifications
+### Notifications
 - If a user tries to post an invalid edit pattern form they are notified to fill out required fields.
 - When submitting a valid edit pattern form the user is notified that the pattern will be available again after approval from a site administrator. 
 
-# Sign in
+# [Sign in](https://github.com/EmelieMarkkanen/make-it-sew/issues/13)
+- The sign in page features a form with username and password fields. 
+- The page features a button to submit the form. 
+- The page also features a checkbox to save the users username and password.
+- The page also features a link to the sign up page, if the user have not yet registered with Make it Sew.
+- When submitting a valid form the user is redirected to the home page as a signed in user. 
 
-# Sign out
+### Notifications
+- If the user tries to post an invalid sign in form they are notified to fill out the required fields.
+- If the user tries to enter an invalid username or password they are notified with the message: `The username and/or password you specified are not correct.`
 
-# Sign up 
+# [Sign out](https://github.com/EmelieMarkkanen/make-it-sew/issues/14)
+- The sign out page features a message asking if the user want to sign out from Make it Sew: `Are you sure you want to sign out?`
+- The page features a button, that when clicked redirect the user to the home page as a signed out user.
 
-# 404
+# [Sign up](https://github.com/EmelieMarkkanen/make-it-sew/issues/12)
+- The sign up page features a form with username, password and email (optional) fields. 
+- The page features a button to submit the form. 
+- The page also features a link to the sign in page, if the user is already registered with Make it Sew. 
+- When submitting a valid form the user is redirected to the home page as a signed in user. 
 
-# 500 
+### Notifications
+- If the user tries to post an invalid sign in form they are notified to fill out the required fields.
+- If the user tries so sign up with a username that already exists in the database they are notified to sign up with a different name: `A user with that username already exists.`
+- If a user tries to sign up with an invalid password they are notified and asked to fill out a different password: `The password is too similar to the username.`
+- If a user tries to sign up with a too short password they are notified and asked to fill out a different password: `This password is too short. It must contain at least 8 characters.`
+
+# [404](https://github.com/EmelieMarkkanen/make-it-sew/issues/34)
+- If a user attempts to access a URL on Make it Sew that doesn't exist, the 404 page will be triggered. 
+- The user is notified via a message that the page doesn't exist, and provides a button redirecting them back to the home page. 
+
+# [500](https://github.com/EmelieMarkkanen/make-it-sew/issues/44) 
+- A 500 error message is triggered if there is a server-side error preventing the page from loading.
+- The user is notified via a message that something went wrong and some possible solutions to the issue, and provides a button redirecting them back to the home page. 
+
+# Django administration
+
+- [A superuser can log in](https://github.com/EmelieMarkkanen/make-it-sew/issues/3) to the administration portal via the link: https://make-it-sew.herokuapp.com/admin
+- Once logged in a superuser can administer users, posted patterns and posted comments
+
+    ### Users
+
+    - A superuser can create new users
+    - A superuser can delete users 
+
+    ### [Patterns](https://github.com/EmelieMarkkanen/make-it-sew/issues/4)
+
+    - [A superuser can create a new pattern post](https://github.com/EmelieMarkkanen/make-it-sew/issues/9)
+    - A superuser can edit a posted pattern
+    - [A superuser can delete a posted pattern](https://github.com/EmelieMarkkanen/make-it-sew/issues/10)
+    - A superuser can set a pattern as featured
+    - A superuser can approve a posted pattern
+
+    ### [Comments](https://github.com/EmelieMarkkanen/make-it-sew/issues/4)
+
+    - [A superuser can create new comments](https://github.com/EmelieMarkkanen/make-it-sew/issues/24)
+    - A superuser can edit comments
+    - A superuser can delete comments
+    - [A superuser can approve posted comments](https://github.com/EmelieMarkkanen/make-it-sew/issues/8)
+    
 
