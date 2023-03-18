@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- 404 error message display -->
+<div class="container-fluid logout-page text-center">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h1>Sorry, something went wrong!</h1>
+                <br>
+                <!-- Button to redirect user to index page -->
+                <div>
+                    <a href="{% url 'index' %}"><button class="btn btn-rounded pink-button">Go back to Make it Sew home
+                            page!</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

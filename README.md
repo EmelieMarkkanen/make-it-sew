@@ -103,9 +103,9 @@ Wireframes created using [Lucidchart](https://www.lucidchart.com/) to plan the g
 
 Make it Sew consists of three models - PostPattern, PostComment and User. User is a Django built-in model. The database schema was used to plan the model and fields. 
 
-[Database schema](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Database.pdf)
+[Database ERD](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Database%20ER%20diagram.pdf)
 
-[Database ERD]()
+[Database schema](https://github.com/EmelieMarkkanen/make-it-sew/blob/main/assets/docs/Database.pdf)
 
 
 # Typography and color scheme
@@ -459,5 +459,8 @@ I followed the steps in the Code Institute course material and [Django Blog chea
 
 
 # Credits
+
+404 and 500 handlers sourced from Stack Overflow
+https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
 
 
