@@ -415,6 +415,10 @@ I used the [Code Institute Python linter](https://pep8ci.herokuapp.com/#) to tes
 
 ![Test_form.py test image](assets/images/test-forms-py-test.jpg)
 
+## Responsive Tests
+
+Make it sew have been tested on a range of different devices and screen sizes to test for style and layout issues. Manual responsive tests were carried out using Chrome Dev Tools. Media queries have been added to the CSS to account for different screen sizes. 
+
 
 ## Bugs
 

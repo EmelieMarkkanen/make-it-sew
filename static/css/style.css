@@ -294,3 +294,11 @@ justify-content: right;
     height: 175vh;
   }
 }
+
+@media only screen and (max-width: 300px) {
+
+  .liked-patterns, .my-patterns, .all-patterns-view {
+    height:500vh;
+  }
+
+}
